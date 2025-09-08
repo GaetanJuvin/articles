@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mixtral of Experts: The Super Teamwork AI Explained for Kids</title>
+  <meta name="description" content="Discover Mixtral 8x7B, a new AI model that uses a team of experts to answer questions, solve math, write code, and more—explained simply for everyone!">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    .meta { color: #555; font-size: 1em; margin-bottom: 2em; }
+    table { border-collapse: collapse; margin: 1em 0; }
+    th, td { border: 1px solid #bbb; padding: 0.5em 1em; }
+    th { background: #e3eefa; }
+    .fun { background: #fffbe7; padding: 1em; border-left: 4px solid #f7c873; margin: 1em 0; }
+    .img { text-align: center; margin: 2em 0; }
+    .img img { max-width: 100%; }
+    .note { color: #888; font-size: 0.95em; }
+  </style>
+</head>
+<body>
+  <h1>Mixtral of Experts: The Super Teamwork AI Explained for Kids</h1>
+  <div class="meta">
+    <strong>Meta Description:</strong> Discover Mixtral 8x7B, a new AI model that uses a team of experts to answer questions, solve math, write code, and more—explained simply for everyone!
+  </div>
+
+  <h2>Introduction: Meet Mixtral, the AI with a Super Team</h2>
+  <p>
+    Imagine you have a big school project, and you can ask not just one smart friend, but a whole team of experts—one for math, one for languages, one for science, and so on. Each time you have a question, you pick the two best experts to help you. That’s how <strong>Mixtral 8x7B</strong> works! It’s a new kind of AI model that uses a “mixture of experts” to be super smart, super fast, and super helpful.
+  </p>
+  <div class="fun">
+    <strong>Fun fact:</strong> Mixtral is so good, it can beat much bigger AIs like Llama 2 70B and GPT-3.5, even though it uses less brainpower at a time!
+  </div>
+
+  <h2>How Mixtral Works: The Mixture of Experts</h2>
+  <h3>What is a Mixture of Experts?</h3>
+  <p>
+    Think of Mixtral like a classroom with 8 different teachers (we call them “experts”). Every time the AI reads a word (we call it a “token”), it asks a special helper (the “router”) to pick the two best teachers for that word. The teachers each give their answer, and the router mixes their answers together to get the best result.
+  </p>
+  <div class="img">
+    <img src="https://mistral.ai/news/mixtral-of-experts/moe_layer.png" alt="Mixture of Experts Layer Diagram">
+    <div class="note">Figure: Each word is sent to two experts, and their answers are combined.</div>
+  </div>
+  <h3>Why is this cool?</h3>
+  <p>
+    Most AIs use all their brain for every word, which is slow and expensive. Mixtral only uses a small part of its brain for each word, so it’s much faster and can be even smarter!
+  </p>
+
+  <h2>Mixtral’s Architecture: The Numbers Behind the Magic</h2>
+  <ul>
+    <li><strong>Experts:</strong> 8 (like 8 teachers)</li>
+    <li><strong>Layers:</strong> 32 (like 32 steps in thinking)</li>
+    <li><strong>Active Parameters:</strong> 13 billion (the part used for each word)</li>
+    <li><strong>Total Parameters:</strong> 47 billion (the whole brain!)</li>
+    <li><strong>Context Size:</strong> 32,768 tokens (can read very long stories!)</li>
+    <li><strong>Vocabulary:</strong> 32,000 words and pieces</li>
+  </ul>
+  <p>
+    The router is like a coach who always knows which teachers are best for each question. For every word, it picks two experts out of eight, and only those two do the work.
+  </p>
+
+  <h2>Why Mixtral is Fast and Smart</h2>
+  <ul>
+    <li><strong>Efficient:</strong> Only two experts work at a time, so it’s quick and doesn’t waste energy.</li>
+    <li><strong>Powerful:</strong> Even with less “active brain,” it beats much bigger models on many tests.</li>
+    <li><strong>Long Memory:</strong> Can remember and use information from very long texts (up to 32,000 words!).</li>
+  </ul>
+  <div class="fun">
+    <strong>Geeky detail:</strong> Mixtral uses something called “SwiGLU” for its expert brains, which is a fancy way to make the thinking smoother and faster.
+  </div>
+
+  <h2>Benchmarks and Results: How Mixtral Stacks Up</h2>
+  <p>
+    Mixtral was tested on lots of school-like challenges: common sense, world knowledge, reading, math, and even writing code! Here’s how it did compared to other famous AIs:
+  </p>
+  <table>
+    <tr>
+      <th>Model</th>
+      <th>Active Parameters</th>
+      <th>MMLU (school test)</th>
+      <th>Math</th>
+      <th>Code</th>
+    </tr>
+    <tr>
+      <td>Llama 2 70B</td>
+      <td>70B</td>
+      <td>69.9%</td>
+      <td>13.8%</td>
+      <td>49.8%</td>
+    </tr>
+    <tr>
+      <td>GPT-3.5</td>
+      <td>?</td>
+      <td>70.0%</td>
+      <td>57.1%</td>
+      <td>52.2%</td>
+    </tr>
+    <tr>
+      <td><strong>Mixtral 8x7B</strong></td>
+      <td>13B</td>
+      <td><strong>70.6%</strong></td>
+      <td><strong>28.4%</strong></td>
+      <td><strong>60.7%</strong></td>
+    </tr>
+  </table>
+  <p>
+    <strong>Translation:</strong> Mixtral is as good or better than the big guys, but with a much smaller “active brain”!
+  </p>
+  <h3>Multilingual Superpowers</h3>
+  <p>
+    Mixtral is not just good in English. It’s also great in French, German, Spanish, and Italian—better than Llama 2 70B in all these languages!
+  </p>
+
+  <h2>Bias and Fairness: Is Mixtral Nice?</h2>
+  <p>
+    Sometimes, AIs can be unfair or show bias. Mixtral was tested on special “fairness” quizzes and showed less bias and more positive feelings than Llama 2 70B. That means it tries to be more fair and friendly.
+  </p>
+
+  <h2>Instruction Fine-tuning: Mixtral-Instruct, the Chatty Helper</h2>
+  <p>
+    There’s a special version called <strong>Mixtral-Instruct</strong> that’s trained to follow instructions and chat with people. It was tested against other chatbots like GPT-3.5 Turbo, Claude-2.1, and Gemini Pro—and it won!
+  </p>
+  <div class="img">
+    <img src="https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/screenshot.png" alt="Leaderboard Screenshot">
+    <div class="note">Mixtral-Instruct is the best open-source chatbot as of December 2023!</div>
+  </div>
+
+  <h2>How Mixtral Chooses Experts: Does It Specialize?</h2>
+  <p>
+    You might think each expert becomes a specialist (like one for math, one for code), but the paper found that’s not really true. The router picks experts based more on the structure of the sentence than the topic. For example, in Python code, the word “self” often goes to the same expert, and in English, the word “Question” does too.
+  </p>
+  <div class="fun">
+    <strong>Fun fact:</strong> Sometimes, the same expert is picked for many words in a row, especially in the middle and end of the thinking process. This helps Mixtral work faster!
+  </div>
+
+  <h2>Conclusion: Why Mixtral Matters</h2>
+  <p>
+    Mixtral 8x7B is like having a super team of teachers in your computer. It’s fast, smart, fair, and open for everyone to use. Because it’s open source, anyone can build new tools, apps, or even better AIs with it. The future of AI teamwork is here, and it’s called Mixtral!
+  </p>
+  <p class="note">
+    <strong>Want to learn more?</strong> Check out the <a href="https://github.com/mistralai/mistral-src">Mixtral code on GitHub</a> or the <a href="https://mistral.ai/news/mixtral-of-experts/">official Mixtral page</a>.
+  </p>
+</body>
+</html>
