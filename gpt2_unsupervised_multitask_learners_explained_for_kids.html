@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Language Models Became Unsupervised Multitask Learners: Explaining GPT-2 for Kids</title>
+  <meta name="description" content="A fun, simple explanation of the famous 'Language Models are Unsupervised Multitask Learners' paper (GPT-2) for curious minds. Discover how computers learn to do many things at once—without being told exactly how!">
+  <meta property="article:published_time" content="2025-09-18" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .fun-fact { background: #e0f7fa; border-left: 4px solid #00bcd4; padding: 1em; margin: 1em 0; }
+    .example { background: #fffde7; border-left: 4px solid #ffd600; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How Language Models Became Unsupervised Multitask Learners: Explaining GPT-2 for Kids</h1>
+  <p><em>By your friendly French engineer who loves both croissants and code!</em></p>
+
+  <h2>Introduction: What If a Computer Could Learn Like a Kid?</h2>
+  <p>
+    Imagine you have a super curious robot friend. You never tell it exactly what to do, but you let it read millions of books, websites, and stories. After a while, this robot can answer questions, tell jokes, translate languages, and even write stories—without you ever giving it step-by-step instructions for each task. Sounds like magic, non? Well, this is (almost) what the famous paper <strong>"Language Models are Unsupervised Multitask Learners"</strong> is all about!
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The robot in our story is called <strong>GPT-2</strong>, and it was created by some very smart people at OpenAI.
+  </div>
+
+  <h2>What Is a Language Model?</h2>
+  <p>
+    A language model is like a super brainy parrot. It reads lots and lots of text and tries to guess what comes next in a sentence. For example, if you say "The cat sat on the...", the model might guess "mat" or "sofa". The more it reads, the better it gets at guessing!
+  </p>
+  <div class="example">
+    <strong>Example:</strong> If you say "Once upon a...", the model might say "time" because it has seen this phrase many times in fairy tales.
+  </div>
+
+  <h2>How Did People Teach Computers Before?</h2>
+  <p>
+    Before GPT-2, computers learned by being given lots of examples for one specific job. If you wanted a computer to answer questions, you gave it thousands of questions and answers. If you wanted it to translate, you gave it thousands of sentences in English and French. This is called <strong>supervised learning</strong>—like a teacher giving you homework with the answers.
+  </p>
+  <p>
+    But this is a bit boring and not very flexible. If you want your computer to do something new, you need to make a whole new set of homework. Pfff, so much work!
+  </p>
+
+  <h2>What’s So Special About GPT-2?</h2>
+  <h3>Learning Without Being Told</h3>
+  <p>
+    GPT-2 is different. It learns by reading a huge pile of text from the internet (called <strong>WebText</strong>), but nobody tells it what the "right" answer is for any task. It just tries to guess the next word, over and over, millions of times. This is called <strong>unsupervised learning</strong>.
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The WebText dataset had about 8 million documents and 40 gigabytes of text. That’s like reading all the Harry Potter books more than 10,000 times!
+  </div>
+
+  <h3>Becoming a Multitasker</h3>
+  <p>
+    After all this reading, GPT-2 can do many things at once—like answering questions, summarizing stories, translating languages, and more. And it does this <strong>without being given special training for each job</strong>. It’s like a kid who learns to play chess, ride a bike, and bake a cake just by reading about them, without anyone showing them how!
+  </p>
+
+  <h2>How Does GPT-2 Work?</h2>
+  <h3>The Transformer: The Brain of GPT-2</h3>
+  <p>
+    GPT-2 uses a special kind of computer brain called a <strong>Transformer</strong>. This brain is very good at paying attention to different parts of a sentence, so it can understand context and meaning. The more "neurons" (parameters) it has, the smarter it gets.
+  </p>
+  <div class="example">
+    <strong>Example:</strong> GPT-2’s biggest version has <strong>1.5 billion parameters</strong>. That’s like having 1.5 billion tiny switches in its brain!
+  </div>
+
+  <h3>Byte Pair Encoding: Speaking All Languages</h3>
+  <p>
+    To help GPT-2 understand any word, even made-up ones, it uses a trick called <strong>Byte Pair Encoding (BPE)</strong>. This breaks words into smaller pieces, so it can handle "cat", "cats", "catlike", or even "catastrophe" without getting confused.
+  </p>
+
+  <h2>What Can GPT-2 Do? (With No Extra Training!)</h2>
+  <h3>1. Answer Questions</h3>
+  <p>
+    If you give GPT-2 a story and ask it questions, it can answer them almost as well as some systems that were specially trained for this job.
+  </p>
+  <h3>2. Summarize Stories</h3>
+  <p>
+    Give it a long article and ask for a summary, and it will try its best to give you the main points.
+  </p>
+  <h3>3. Translate Languages</h3>
+  <p>
+    Even though it mostly read English, GPT-2 can sometimes translate between English and French, just by seeing examples in its reading material.
+  </p>
+  <h3>4. Write Stories and More</h3>
+  <p>
+    You can ask GPT-2 to write a story about unicorns, and it will invent something new and fun!
+  </p>
+  <div class="example">
+    <strong>Example:</strong> When asked to write about unicorns in the Andes, GPT-2 invented a story about unicorns who speak perfect English. (No kidding!)
+  </div>
+
+  <h2>Does Bigger Mean Smarter?</h2>
+  <p>
+    The researchers found that the bigger the model (more parameters), the better it got at all these tasks. It’s like having a bigger brain helps you remember and do more things at once.
+  </p>
+  <div class="fun-fact">
+    <strong>Geeky Note:</strong> The improvement was almost <strong>log-linear</strong>—which means every time you make the model much bigger, it gets a lot better, but not quite twice as good.
+  </div>
+
+  <h2>But... Is It Perfect?</h2>
+  <p>
+    Non, not at all! GPT-2 is still not as good as humans at many things. Sometimes it makes silly mistakes, or gives answers that sound right but are not. And for some jobs, like summarizing, it’s still learning.
+  </p>
+  <p>
+    Also, sometimes it remembers things from its reading that it shouldn’t, or repeats phrases it saw too often. The researchers checked for this and found it’s not a big problem, but it’s something to watch out for.
+  </p>
+
+  <h2>Why Is This Important?</h2>
+  <p>
+    This paper showed that with enough reading and a big enough brain, a computer can start to learn many jobs at once, just by seeing examples in the wild. It doesn’t need a teacher for every new thing. This is a big step towards making computers that can help us in many ways, without needing to be re-trained for every little task.
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The code for a small version of GPT-2 was shared online, so anyone can try it out!
+  </div>
+
+  <h2>Conclusion: The Curious Robot Grows Up</h2>
+  <p>
+    GPT-2 is like a super curious robot that learns by reading everything it can find. It doesn’t need a teacher for every job—it just needs lots of examples. This makes it a multitasker, able to help with many things at once. The more it reads, and the bigger its brain, the better it gets. Maybe one day, computers will learn just like us—by exploring, reading, and being curious!
+  </p>
+  <p>
+    <em>Merci for reading! If you have questions, ask your own robot friend (or your favorite French engineer!).</em>
+  </p>
+</body>
+</html>
