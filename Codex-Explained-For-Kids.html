@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Codex Learns to Code: Explaining Large Language Models for Kids</title>
+  <meta name="description" content="A friendly, geeky explanation of the Codex paper—how AI learns to write code, how it’s tested, and what it means for the future of programming.">
+  <meta property="article:published_time" content="2025-09-24" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    code, pre { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .example { background: #e6f7ff; border-left: 4px solid #1890ff; padding: 1em; margin: 1em 0; }
+    .note { background: #fffbe6; border-left: 4px solid #ffe58f; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How Codex Learns to Code: Explaining Large Language Models for Kids</h1>
+  <p><em>By your friendly French engineer who loves both baguettes and Python code 🥖🐍</em></p>
+  <p>
+    Imagine if your computer could write code for you, just by reading what you want in plain English. Sounds like magic, right? Well, that’s what Codex, a super-smart AI, is trying to do! In this blog, I’ll explain how Codex works, how scientists test it, and what it means for the future of programming—all in a way that even a ten-year-old can understand (and maybe a few grown-ups too).
+  </p>
+
+  <h2>What is Codex? (And Why Should You Care?)</h2>
+  <p>
+    Codex is a special kind of computer brain called a <strong>large language model</strong>. It’s like a robot that has read millions of lines of code from the internet (especially from GitHub) and learned how to write its own code. If you tell Codex, “Write a function that adds two numbers,” it can do it! In fact, Codex is the brain behind GitHub Copilot, the tool that helps programmers by suggesting code as they type.
+  </p>
+  <div class="example">
+    <strong>Example:</strong> If you write a comment like <code># make a function that checks if a number is prime</code>, Codex can write the Python code for you!
+  </div>
+
+  <h2>How Do You Teach a Computer to Code?</h2>
+  <h3>Step 1: Feed It Lots of Code</h3>
+  <p>
+    Codex learned by reading <strong>159 gigabytes</strong> of Python code from 54 million public GitHub projects. That’s more code than most humans will see in their whole life! It also learned from natural language, so it understands both code and English.
+  </p>
+  <h3>Step 2: Practice Makes Perfect</h3>
+  <p>
+    The scientists gave Codex lots of practice problems, like little puzzles. For example, “Write a function that returns the longest word in a list.” Codex tries to solve these, and if it gets it wrong, it learns from its mistakes.
+  </p>
+  <h3>Step 3: Test, Test, Test!</h3>
+  <p>
+    To see how good Codex is, the researchers made a special test called <strong>HumanEval</strong>. It’s a set of 164 hand-written programming problems, each with its own tests (like mini-exams for code). Codex has to write code that passes all the tests.
+  </p>
+
+  <h2>How Do We Know If Codex Is Good?</h2>
+  <h3>Functional Correctness: Does It Work?</h3>
+  <p>
+    The most important question: <strong>Does the code actually do what it’s supposed to?</strong> To check this, Codex’s code is run through <strong>unit tests</strong>—little programs that check if the answer is right.
+  </p>
+  <div class="example">
+    <strong>Example:</strong> If the problem is “add two numbers,” the test might check if <code>add(2, 3)</code> gives <code>5</code>.
+  </div>
+  <h3>Pass@k: How Many Tries Does It Take?</h3>
+  <p>
+    Sometimes Codex gets it right on the first try, sometimes it needs a few attempts. Scientists use a metric called <strong>pass@k</strong>: if you let Codex try <em>k</em> times, what’s the chance it gets at least one correct answer?
+  </p>
+  <div class="example">
+    <strong>Example:</strong> If Codex solves 70 out of 100 problems in 100 tries each, its pass@100 is 70%.
+  </div>
+  <h3>Better Than BLEU</h3>
+  <p>
+    Some old tests just checked if Codex’s code looked like the “official” answer (using something called BLEU score). But in code, there are many ways to solve a problem! So, passing the tests is more important than looking the same.
+  </p>
+
+  <h2>How Well Does Codex Do?</h2>
+  <ul>
+    <li>With just one try, Codex solves about <strong>29%</strong> of HumanEval problems.</li>
+    <li>If you let it try 100 times and pick the best, it solves over <strong>70%</strong>!</li>
+    <li>Older models like GPT-3 solve almost none, and GPT-J solves about 11%.</li>
+  </ul>
+  <div class="note">
+    <strong>Geeky fact:</strong> The more code Codex reads and the bigger its “brain” (number of parameters), the better it gets—just like a human who practices a lot!
+  </div>
+
+  <h2>What Are Codex’s Weaknesses?</h2>
+  <ul>
+    <li><strong>Long Instructions:</strong> If you give Codex a really long, complicated problem, it gets confused (like a kid who forgets the start of a long story).</li>
+    <li><strong>Binding Variables:</strong> Sometimes it mixes up which variable does what, especially if there are many steps.</li>
+    <li><strong>Not Always Safe:</strong> Codex can write code that is insecure or buggy, especially if the instructions are unclear or have mistakes.</li>
+    <li><strong>Bias:</strong> Because it learned from public code, it can pick up bad habits or even biased ideas.</li>
+  </ul>
+
+  <h2>How Do Scientists Make Codex Better?</h2>
+  <h3>Supervised Fine-Tuning</h3>
+  <p>
+    The researchers gave Codex extra lessons using problems from coding competitions and open-source projects with good tests. This made a new version called <strong>Codex-S</strong>, which is even better at solving problems.
+  </p>
+  <h3>Docstring Generation</h3>
+  <p>
+    Codex can also learn to write <strong>docstrings</strong> (the little text that explains what a function does). This helps make code easier to understand and safer to use.
+  </p>
+
+  <h2>Why Does This Matter? (The Big Picture)</h2>
+  <ul>
+    <li><strong>Helps Programmers:</strong> Codex can save time, help beginners, and make coding more fun.</li>
+    <li><strong>Needs Supervision:</strong> You still need a human to check the code—Codex is smart, but not perfect!</li>
+    <li><strong>Safety and Security:</strong> We must be careful, because Codex can make mistakes or suggest unsafe code.</li>
+    <li><strong>Fairness:</strong> Codex can accidentally repeat biases from its training data, so we need to watch out for that.</li>
+    <li><strong>Environmental Impact:</strong> Training big models uses a lot of electricity, so it’s important to use green energy when possible.</li>
+  </ul>
+
+  <h2>What’s Next for Codex and AI Coding?</h2>
+  <p>
+    Codex is already helping programmers around the world, but there’s still lots to improve. Scientists are working on making it safer, more reliable, and better at understanding what people really want. Maybe one day, anyone—even a ten-year-old—can build their own apps just by describing them!
+  </p>
+  <div class="note">
+    <strong>Fun challenge:</strong> Try giving Codex a weird or tricky problem and see what it does. But always check its answers—sometimes it’s a bit like a clever but mischievous classmate!
+  </div>
+
+  <h2>Summary: What Did We Learn?</h2>
+  <ul>
+    <li>Codex is a super-smart AI that learned to code by reading lots of code and English.</li>
+    <li>It’s tested by making it solve real problems and checking if its code works.</li>
+    <li>It’s not perfect—sometimes it makes mistakes, so humans still need to check its work.</li>
+    <li>Codex is already changing how people write code, but we need to use it wisely and safely.</li>
+  </ul>
+  <p>
+    Merci for reading! If you have questions or want to try Codex yourself, ask your favorite grown-up programmer—or maybe, one day, you’ll teach Codex a thing or two!
+  </p>
+</body>
+</html>
