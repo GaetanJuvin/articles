@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Computers Learn Like Kids: The Neuro-Symbolic Concept Learner Explained</title>
+  <meta name="description" content="A fun, simple explanation of the Neuro-Symbolic Concept Learner (NS-CL) from ICLR 2019, showing how AI can learn to see, read, and answer questions just like a human child." />
+  <meta property="article:published_time" content="2019-05-06" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #222; }
+    .container { max-width: 800px; margin: 2em auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    h1, h2, h3 { color: #2a4d7a; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .img-sample { display: block; margin: 1em auto; max-width: 100%; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
+    .fun-fact { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 0.5em 1em; margin: 1em 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>How Computers Learn Like Kids: The Neuro-Symbolic Concept Learner Explained</h1>
+    <p><em>What if a computer could learn to see and understand the world just by looking at pictures and reading questions, like a curious child? Let’s dive into the Neuro-Symbolic Concept Learner (NS-CL) and see how it works!</em></p>
+
+    <h2>1. The Big Idea: Learning Like a Human</h2>
+    <p>Imagine you see a red cube and someone asks, “What color is the object?” You look, you think, and you answer, “Red!” Easy, right? Now, imagine a computer doing the same thing—without anyone telling it what “red” means. That’s what the NS-CL tries to do!</p>
+
+    <div class="fun-fact">
+      <strong>Fun Fact:</strong> NS-CL stands for <b>Neuro-Symbolic Concept Learner</b>. It’s a fancy name, but the idea is simple: learn by seeing and reading, not by memorizing labels.
+    </div>
+
+    <h2>2. What is the Neuro-Symbolic Concept Learner?</h2>
+    <p>NS-CL is a computer program (an AI model) that learns to:</p>
+    <ul>
+      <li>Look at pictures and find objects (like cubes, spheres, and cylinders).</li>
+      <li>Read questions about the pictures (like “How many red objects are there?”).</li>
+      <li>Figure out the answer—all by itself!</li>
+    </ul>
+    <p>It doesn’t get told what each object is. Instead, it learns by matching what it sees with the questions and answers it reads. Like a kid learning new words by playing and asking questions!</p>
+
+    <h2>3. How Does NS-CL Work?</h2>
+    <h3>A. Three Brains in One</h3>
+    <ol>
+      <li><b>Seeing Brain:</b> Looks at the picture and finds all the objects.</li>
+      <li><b>Language Brain:</b> Reads the question and turns it into a set of instructions (like a recipe).</li>
+      <li><b>Reasoning Brain:</b> Follows the instructions to find the answer using what it saw.</li>
+    </ol>
+    <p>These brains work together, learning from each other. If the computer gets a question wrong, it tries to figure out which brain made the mistake and gets better next time.</p>
+
+    <h3>B. Learning Step by Step (Like School!)</h3>
+    <p>NS-CL starts with easy questions and simple pictures. As it gets better, it moves on to harder questions and more complicated scenes. This is called <b>curriculum learning</b>—just like how you start with 1+1 before learning algebra!</p>
+
+    <h2>4. Learning Like a Human</h2>
+    <p>First, NS-CL learns basic things: colors, shapes, and sizes. Then, it learns about relationships: which object is left of another, or which ones are the same color. Finally, it can answer really tricky questions, like “How many objects are both right of the green cylinder and have the same material as the small blue ball?” (Phew, even I need to think for that one!)</p>
+
+    <img src="https://raw.githubusercontent.com/qwasar-public/blog-assets/main/nscl-clevr-example.png" alt="Sample CLEVR scene with objects and questions" class="img-sample" />
+    <p style="text-align:center; font-size:0.95em; color:#555;">(Example: The computer sees a scene and answers questions about it, step by step.)</p>
+
+    <h2>5. Why Is This So Cool?</h2>
+    <ul>
+      <li><b>Explains Its Answers:</b> NS-CL can show you exactly how it figured out the answer. No magic, just logic!</li>
+      <li><b>Learns New Things Fast:</b> If you show it a new color or shape, it can learn it quickly—just like you can learn a new word.</li>
+      <li><b>Handles New Questions:</b> It can answer questions it’s never seen before, as long as it understands the words.</li>
+    </ul>
+
+    <h2>6. How Good Is It?</h2>
+    <p>NS-CL is really, really good at answering questions about pictures. In tests, it got almost every question right—even when it had to learn with only a small number of examples. It’s also better than many other computer models, especially when it comes to learning new things or explaining its answers.</p>
+
+    <h2>7. What Can We Do With It?</h2>
+    <ul>
+      <li>Make smart robots that can answer questions about what they see.</li>
+      <li>Find pictures that match a sentence (like “Show me all the photos with a yellow cube”).</li>
+      <li>Help computers learn new words and ideas, just by looking and listening.</li>
+    </ul>
+
+    <h2>8. The Future: Smarter, More Human-Like AI</h2>
+    <p>NS-CL is a big step toward computers that learn and think more like people. It’s not perfect yet—real life is messier than simple pictures! But with ideas like this, maybe one day computers will learn just by exploring the world, like you do every day.</p>
+
+    <div class="fun-fact">
+      <strong>Geeky Note:</strong> NS-CL uses something called a “domain-specific language” to turn questions into little computer programs. This makes it easy to see how the answer was found. (If you like puzzles, you’d love this part!)
+    </div>
+
+    <h2>9. Want to Learn More?</h2>
+    <ul>
+      <li><a href="http://nscl.csail.mit.edu" target="_blank">Project page for NS-CL</a></li>
+      <li><a href="https://arxiv.org/abs/1904.12584" target="_blank">Original paper on arXiv</a></li>
+      <li><a href="https://cs.stanford.edu/people/jcjohns/clevr/" target="_blank">CLEVR dataset</a> (used for training and testing)</li>
+    </ul>
+
+    <hr />
+    <p style="font-size:0.95em; color:#888;">Written by Juan, your friendly French engineering geek. If you spot a small mistake in my English, c’est la vie! I hope you enjoyed this little journey into the world of learning machines.</p>
+  </div>
+</body>
+</html>
