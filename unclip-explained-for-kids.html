@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Computers Make Pictures from Words: unCLIP Explained for Kids</title>
+  <meta name="description" content="Discover how computers like unCLIP can turn your words into amazing pictures! A fun, simple explanation of the science behind text-to-image AI." />
+  <meta property="article:published_time" content="2022-04-23" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; max-width: 800px; margin: 2em auto; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    .img-row { display: flex; flex-wrap: wrap; gap: 1em; margin: 1em 0; }
+    .img-row img { max-width: 180px; border-radius: 8px; border: 1px solid #ccc; }
+    .note { background: #e3f2fd; padding: 1em; border-left: 4px solid #1976d2; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How Computers Make Pictures from Words: unCLIP Explained for Kids</h1>
+  <p><em>By a friendly French engineer who loves computers and a little bit of art!</em></p>
+
+  <h2>Introduction: Can a Computer Paint What You Imagine?</h2>
+  <p>Imagine you say, “Draw me a panda scientist mixing potions!” and your computer makes a picture of exactly that. Sounds like magic, non? But it’s real! Scientists have built computers that can turn words into amazing pictures. Today, I’ll explain how one of the coolest of these, called <strong>unCLIP</strong>, works. Don’t worry, I’ll keep it simple—like I’m explaining to my little cousin (or maybe to you!).</p>
+
+  <h2>What is CLIP? (And Why Is It So Cool?)</h2>
+  <p>CLIP is a special computer program made by smart people at OpenAI. It can look at a picture and tell you what it is, or read a sentence and imagine what it would look like. It’s like a super-brain that understands both pictures and words at the same time. This is very useful if you want to make a computer that can draw what you describe!</p>
+
+  <h2>How Does unCLIP Make Pictures from Words?</h2>
+  <p>Okay, so unCLIP is like a two-step artist. First, it <strong>imagines</strong> what the picture should be (this is called the <em>prior</em>). Then, it <strong>draws</strong> the picture (this is called the <em>decoder</em>). Let’s see how each step works:</p>
+  <ol>
+    <li><strong>Pretend (Prior):</strong> unCLIP takes your words and imagines what the picture should be like, but in its own secret code (called an <em>embedding</em>).</li>
+    <li><strong>Draw (Decoder):</strong> It takes this secret code and turns it into a real picture you can see!</li>
+  </ol>
+  <div class="img-row">
+    <img src="https://user-images.githubusercontent.com/placeholder/clip-overview.jpg" alt="CLIP overview diagram" />
+    <img src="https://user-images.githubusercontent.com/placeholder/unclip-process.jpg" alt="unCLIP process diagram" />
+  </div>
+  <p class="note">(Sorry, I cannot show the real images from the paper here, but imagine a flowchart with words going in, and pictures coming out!)</p>
+
+  <h2>How Does the Decoder Work? (Making Blurry Pictures Clear)</h2>
+  <p>The decoder is like an artist who starts with a blurry mess and slowly makes it clearer and clearer until it looks real. This is called a <strong>diffusion model</strong>. It’s a bit like when you clean your glasses and suddenly everything is sharp!</p>
+  <p>But wait, there’s more! The decoder first makes a small picture, then uses special tools (called <em>upsamplers</em>) to make it bigger and more detailed. Like zooming in and adding more pixels.</p>
+
+  <h2>How Does the Prior Work? (Imagination Time!)</h2>
+  <p>The prior is the part that imagines what the picture should be, just from your words. There are two ways to do this:</p>
+  <ul>
+    <li><strong>Autoregressive (AR):</strong> Like writing a story one word at a time.</li>
+    <li><strong>Diffusion:</strong> Like thinking of the whole story at once, but with a bit of randomness.</li>
+  </ul>
+  <p>The scientists found that the diffusion way is faster and makes better pictures. (Bravo, diffusion!)</p>
+
+  <h2>What Can unCLIP Do? (It’s Like a Magic Art Machine!)</h2>
+  <ul>
+    <li><strong>Make new pictures from words:</strong> “A shiba inu wearing a beret and turtleneck” – voilà, you get it!</li>
+    <li><strong>Make variations:</strong> Give it a picture, and it can make similar but different versions. Like drawing the same thing in many styles.</li>
+    <li><strong>Mix two pictures:</strong> It can blend two images together, so you get something in between. Like mixing red and blue to get purple.</li>
+    <li><strong>Change a picture with words:</strong> You can say, “Make this cat into a super saiyan!” and it will try to do it.</li>
+  </ul>
+  <div class="img-row">
+    <img src="https://user-images.githubusercontent.com/placeholder/variation-examples.jpg" alt="Variations of images" />
+    <img src="https://user-images.githubusercontent.com/placeholder/interpolation-examples.jpg" alt="Interpolation between images" />
+    <img src="https://user-images.githubusercontent.com/placeholder/text-diff-examples.jpg" alt="Text diffs on images" />
+  </div>
+
+  <h2>What Did the Scientists Find?</h2>
+  <ul>
+    <li>unCLIP makes more <strong>different</strong> pictures than older models. It’s more creative!</li>
+    <li>Sometimes it mixes up details, like the color of things or writing words in pictures. (Even computers make mistakes, eh!)</li>
+    <li>It’s not perfect, but it’s very, very good at making art from words.</li>
+  </ul>
+  <p>They also found that people liked the pictures from unCLIP more than from some older models, especially because they were more diverse (not always the same thing).</p>
+
+  <h2>Why Does This Matter?</h2>
+  <p>With computers like unCLIP, anyone can make art just by describing it. This is great for creativity, games, and learning. But we must be careful: these tools can also be used to make fake or confusing pictures, so we need to use them responsibly.</p>
+
+  <h2>Conclusion: The Future of Art and AI</h2>
+  <p>So, next time you see a computer making a beautiful picture from just a few words, remember: inside, it’s imagining and drawing, step by step, using clever tricks from math and computer science. Maybe one day, you’ll build your own art robot, too!</p>
+  <p><em>Merci for reading! If you have questions, ask your favorite engineer (or your computer!).</em></p>
+
+</body>
+</html>
