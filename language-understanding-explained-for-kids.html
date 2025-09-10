@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Computers Learn to Understand Language: The Story of Reading Lots of Books</title>
+  <meta name="description" content="Explaining the famous OpenAI paper on language understanding and pre-training, in a way even a ten-year-old can enjoy!">
+  <meta property="article:published_time" content="2025-09-20" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    .figure { background: #fff; border: 1px solid #ddd; padding: 1em; margin: 2em 0; border-radius: 8px; }
+    .fun-fact { background: #e3f2fd; border-left: 5px solid #1976d2; padding: 1em; margin: 1em 0; border-radius: 5px; }
+    ul { margin-left: 2em; }
+  </style>
+</head>
+<body>
+  <h1>How Computers Learn to Understand Language: The Story of Reading Lots of Books</h1>
+  <p><em>By your friendly French engineer, explaining AI with a little accent and a lot of geeky fun!</em></p>
+
+  <h2>Introduction: Why is Language So Hard for Computers?</h2>
+  <p>
+    Imagine you are trying to teach your pet robot to understand stories, answer questions, or even tell if two sentences mean the same thing. Sounds easy, non? But for computers, language is like a giant puzzle with millions of pieces! There are so many words, jokes, and tricky meanings. And, to make it harder, computers usually need a lot of examples with the right answers (we call this <b>labeled data</b>), but these are hard to get.
+  </p>
+  <div class="fun-fact">
+    <b>Fun Fact:</b> Humans learn language by hearing and reading a lot, not by getting a million quizzes with answers!
+  </div>
+
+  <h2>The Big Idea: Let the Computer Read a Lot Before Doing Homework</h2>
+  <p>
+    The clever scientists at OpenAI had a simple but powerful idea: what if we let the computer read a huge pile of books and stories first, before asking it to do any homework? This is called <b>pre-training</b>. After the computer has read a lot, we give it some special tasks (like answering questions or finding if two sentences are similar) and help it practice on those. This second part is called <b>fine-tuning</b>.
+  </p>
+
+  <h2>How the Model Works: Two Steps to Becoming a Language Genius</h2>
+  <ol>
+    <li><b>Pre-training:</b> The computer reads lots of books and tries to guess the next word in every sentence. It learns patterns, grammar, and even some world knowledge—like a kid who reads all the Harry Potter books!</li>
+    <li><b>Fine-tuning:</b> Now, we give the computer some real homework: answer questions, decide if a sentence is happy or sad, or check if two sentences mean the same thing. It uses what it learned from reading to do much better on these tasks.</li>
+  </ol>
+
+  <h2>The Transformer: The Brainy Part of the Model</h2>
+  <p>
+    The computer's "brain" is called a <b>Transformer</b>. No, not the robot from the movies! This is a special kind of neural network that is very good at paying attention to all the words in a sentence, even if they are far apart. It helps the computer remember important things from the story, just like you remember who the villain was at the start of a long book.
+  </p>
+  <div class="figure">
+    <img src="https://i.imgur.com/0y8FQ2B.png" alt="Transformer architecture illustration" style="max-width:100%;"><br>
+    <small><b>Figure:</b> The Transformer model reads sentences and learns to pay attention to all the words, not just the last one!</small>
+  </div>
+
+  <h2>How the Model Learns: Turning Words into Numbers</h2>
+  <p>
+    Computers don't understand words like "cat" or "banana" directly. They turn every word into a list of numbers (we call these <b>embeddings</b>). The Transformer uses these numbers to find patterns and make smart guesses. When it reads, it tries to guess the next word, and when it does homework, it uses what it learned to answer questions or classify sentences.
+  </p>
+
+  <h2>What Tasks Did the Computer Try?</h2>
+  <ul>
+    <li><b>Textual Entailment:</b> Does one sentence follow from another? (Like: "It is raining. The ground is wet.")</li>
+    <li><b>Question Answering:</b> Given a story and a question, can it pick the right answer?</li>
+    <li><b>Semantic Similarity:</b> Are two sentences saying the same thing?</li>
+    <li><b>Text Classification:</b> Is a sentence happy or sad? Is it correct or not?</li>
+  </ul>
+  <div class="fun-fact">
+    <b>Example:</b> If you ask, "What is the capital of France?" after reading many books, the model can answer "Paris" even if it never saw that exact question before!
+  </div>
+
+  <h2>How Well Did It Do? (Spoiler: Super Well!)</h2>
+  <p>
+    The scientists tested their model on 12 different language tasks. In 9 of them, it did better than any other computer model before! For example:
+  </p>
+  <ul>
+    <li><b>Commonsense Reasoning:</b> 8.9% better than before (that’s a big jump!)</li>
+    <li><b>Question Answering:</b> 5.7% better</li>
+    <li><b>Textual Entailment:</b> 1.5% better</li>
+    <li><b>Grammar Judgement:</b> From 35% to 45% correct—like going from a C to a B+ in school!</li>
+  </ul>
+  <div class="figure">
+    <img src="https://i.imgur.com/2QwQw7A.png" alt="Results table illustration" style="max-width:100%;"><br>
+    <small><b>Figure:</b> The model (in blue) beats the old models (in gray) on most tasks!</small>
+  </div>
+
+  <h2>Why Does This Work? The Magic of Learning from Stories</h2>
+  <p>
+    When the computer reads lots of stories, it learns not just words, but also how sentences fit together, what makes sense, and even some facts about the world. This is like how you get better at reading and writing by reading more books, not just by doing worksheets.
+  </p>
+  <div class="fun-fact">
+    <b>Geeky Note:</b> The Transformer is especially good because it can remember things from far away in the text, not just the last sentence!
+  </div>
+
+  <h2>What Did We Learn? (For Kids and Grownups)</h2>
+  <ul>
+    <li>Letting computers read a lot before testing them makes them much smarter.</li>
+    <li>Transformers are like super-brains for language—they remember and connect ideas from all over a story.</li>
+    <li>This way of learning works for many different tasks, not just one.</li>
+    <li>Even with little homework (not much labeled data), the computer can do well if it read a lot first!</li>
+  </ul>
+
+  <h2>Conclusion: Why This Is a Big Deal for the Future</h2>
+  <p>
+    This idea—let the computer read a lot, then help it practice special tasks—changed how we build smart language models. It’s like giving your robot a library card before sending it to school! Now, computers can help us with questions, write stories, and even chat with us, all because they learned from reading first.
+  </p>
+  <p>
+    So next time you read a book, remember: you’re training your own brain, just like the best AI models!
+  </p>
+
+  <h2>References (Kid-Friendly)</h2>
+  <ul>
+    <li>Radford, A., Narasimhan, K., Salimans, T., & Sutskever, I. (2018). Improving Language Understanding by Generative Pre-Training. <a href="https://openai.com/research/">OpenAI Research</a></li>
+    <li>Vaswani, A. et al. (2017). Attention is All You Need. (This is the Transformer paper!)</li>
+    <li>GLUE Benchmark: A big test for language models. <a href="https://gluebenchmark.com/">gluebenchmark.com</a></li>
+  </ul>
+  <p style="font-size:0.9em;color:#888;">Written by your friendly French engineer, with a little help from OpenAI and a lot of café ☕</p>
+</body>
+</html>
