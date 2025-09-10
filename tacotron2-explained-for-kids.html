@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Computers Learned to Talk Like Humans: The Story of Tacotron 2</title>
+  <meta name="description" content="Explaining Tacotron 2 and neural text-to-speech for kids and curious minds. How Google made computers talk almost like real people!">
+  <meta property="article:published_time" content="2018-02-26" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    .diagram { background: #fff; border: 1px solid #ddd; padding: 1em; margin: 1em 0; text-align: center; }
+    .fun-fact { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 1em; margin: 1em 0; }
+    table { border-collapse: collapse; margin: 1em 0; }
+    th, td { border: 1px solid #bbb; padding: 0.5em 1em; }
+    th { background: #e0e0e0; }
+  </style>
+</head>
+<body>
+  <h1>How Computers Learned to Talk Like Humans: The Story of Tacotron 2</h1>
+  <p><em>By your friendly French engineer, explaining AI magic for everyone!</em></p>
+
+  <h2>Introduction: Why is it so hard for computers to talk?</h2>
+  <p>
+    Imagine you want your computer to read you a bedtime story. Easy, right? Well, not so fast! Making a computer talk so it sounds like a real person is actually super tricky. For many years, computer voices sounded like robots from old sci-fi movies—very stiff, sometimes funny, and not at all like your mom or your teacher.
+  </p>
+  <p>
+    But then, some clever engineers at Google and Berkeley made something called <strong>Tacotron 2</strong>. It’s a system that helps computers talk almost like real humans. Let’s see how they did it!
+  </p>
+
+  <h2>The Old Ways: How did computers talk before?</h2>
+  <p>
+    Before the age of deep learning, computers used two main tricks to talk:
+  </p>
+  <ul>
+    <li><strong>Concatenative synthesis</strong>: Chopping up real human speech into tiny pieces and gluing them together. Like making a puzzle, but with words!</li>
+    <li><strong>Parametric synthesis</strong>: Using math and statistics to make new sounds, but these often sounded a bit muffled or weird.</li>
+  </ul>
+  <p>
+    Both methods had problems. The first could sound choppy, and the second was not very natural. People wanted something better!
+  </p>
+
+  <h2>Enter the Robots: What is Tacotron 2?</h2>
+  <p>
+    Tacotron 2 is a <strong>neural network</strong>—a kind of computer brain—that learns to talk by listening to lots of real people. It’s like a kid who learns to speak by copying adults, but much faster (and it never gets tired).
+  </p>
+  <p>
+    The system has two main parts:
+  </p>
+  <ol>
+    <li>A network that turns text into a special picture of sound called a <strong>mel spectrogram</strong>.</li>
+    <li>A second network, called <strong>WaveNet</strong>, that turns this picture into real speech you can hear.</li>
+  </ol>
+
+  <h2>How Does Tacotron 2 Work?</h2>
+  <h3>Step 1: Turning Text into a Mel Spectrogram</h3>
+  <p>
+    First, Tacotron 2 takes the text you want to say, like “Bonjour, comment ça va?”, and turns it into a mel spectrogram. This is like a colorful barcode that shows which sounds happen when. It’s not music, but it’s a way for the computer to “see” the sounds it needs to make.
+  </p>
+  <div class="diagram">
+    <strong>Diagram:</strong><br>
+    <img src="https://i.imgur.com/0Q9Qw1A.png" alt="Mel spectrogram example" width="300"><br>
+    <small>(A mel spectrogram: time goes left to right, colors show sound energy at different pitches.)</small>
+  </div>
+  <p>
+    The network uses something called <strong>sequence-to-sequence learning</strong> with <strong>attention</strong>. This means it looks at the whole sentence and figures out which parts to focus on, so it doesn’t get lost or repeat itself. (Like when you read and use your finger to keep your place!)
+  </p>
+
+  <h3>Step 2: WaveNet Makes the Sound</h3>
+  <p>
+    Now, the mel spectrogram goes to WaveNet, which is like a super-advanced sound chef. WaveNet takes the “recipe” from the spectrogram and cooks up the real audio—one tiny piece at a time, very fast!
+  </p>
+  <div class="diagram">
+    <strong>Diagram:</strong><br>
+    <img src="https://i.imgur.com/4Qw2Qw2.png" alt="Tacotron 2 block diagram" width="400"><br>
+    <small>(Tacotron 2: Text → Mel Spectrogram → WaveNet → Speech)</small>
+  </div>
+  <p>
+    WaveNet is special because it can make very natural-sounding voices, with all the little details that make speech sound human—like the way your voice goes up and down, or how you say “hmm” or “uhh”.
+  </p>
+
+  <h2>Why is this cool? (Results and Comparisons)</h2>
+  <p>
+    The scientists tested Tacotron 2 by asking real people to listen to its speech and rate how natural it sounded. They compared it to other systems, including real human speech. Here’s what they found:
+  </p>
+  <table>
+    <tr>
+      <th>System</th>
+      <th>Mean Opinion Score (MOS)</th>
+    </tr>
+    <tr>
+      <td>Parametric (old style)</td>
+      <td>3.49</td>
+    </tr>
+    <tr>
+      <td>Tacotron (with Griffin-Lim)</td>
+      <td>4.00</td>
+    </tr>
+    <tr>
+      <td>Concatenative (old style)</td>
+      <td>4.17</td>
+    </tr>
+    <tr>
+      <td>WaveNet (with hand-made features)</td>
+      <td>4.34</td>
+    </tr>
+    <tr>
+      <td><strong>Tacotron 2 (this paper!)</strong></td>
+      <td><strong>4.53</strong></td>
+    </tr>
+    <tr>
+      <td>Real human speech</td>
+      <td>4.58</td>
+    </tr>
+  </table>
+  <p>
+    (Scores are out of 5. Tacotron 2 is almost as good as a real person!)
+  </p>
+
+  <h2>What did the scientists learn? (Ablation Studies)</h2>
+  <p>
+    The researchers tried changing different parts of the system to see what mattered most. Here’s what they found:
+  </p>
+  <ul>
+    <li><strong>Mel spectrograms are great!</strong> They are simple, compact, and work better than more complicated features.</li>
+    <li><strong>Post-processing helps.</strong> Adding a little network after the main one (called a post-net) makes the speech even better.</li>
+    <li><strong>WaveNet can be smaller.</strong> Because mel spectrograms are so good, WaveNet doesn’t need to be huge to make great sound.</li>
+    <li><strong>Still not perfect.</strong> Sometimes, Tacotron 2 makes mistakes, like mispronouncing words or putting the wrong emphasis. But it’s getting closer!</li>
+  </ul>
+
+  <h2>Conclusion: Why does this matter?</h2>
+  <p>
+    Thanks to Tacotron 2, computers can now read stories, answer questions, and help people in ways that sound much more natural. This is important for things like voice assistants, audiobooks, and helping people who can’t speak.
+  </p>
+  <p>
+    And the best part? The whole system learns from data—no need for hand-crafting rules or features. It’s like teaching a computer to talk by letting it listen to lots of people, and then letting it try!
+  </p>
+
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> You can listen to samples of Tacotron 2’s voice <a href="https://google.github.io/tacotron/publications/tacotron2">here</a>!
+  </div>
+
+  <h2>Want to learn more?</h2>
+  <ul>
+    <li><a href="https://arxiv.org/abs/1712.05884">Read the original paper on arXiv</a></li>
+    <li><a href="https://deepmind.com/blog/article/wavenet-generative-model-raw-audio">WaveNet explained by DeepMind</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Spectrogram">What is a spectrogram?</a></li>
+  </ul>
+
+  <p>
+    Merci for reading! If you have questions, ask your favorite AI assistant—or maybe, one day, Tacotron 2 itself!
+  </p>
+</body>
+</html>
