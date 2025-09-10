@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adafactor: How to Train Giant Neural Networks Without Running Out of Memory</title>
+  <meta name="description" content="A kid-friendly explanation of Adafactor, a clever optimizer that helps train huge AI models using much less memory.">
+  <meta property="article:published_time" content="2025-09-21" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .note { background: #e0f7fa; padding: 1em; border-left: 4px solid #00bcd4; margin: 1em 0; }
+    .table { background: #fff; border-collapse: collapse; width: 100%; margin: 1em 0; }
+    .table th, .table td { border: 1px solid #ccc; padding: 0.5em; }
+    .table th { background: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>Adafactor: How to Train Giant Neural Networks Without Running Out of Memory</h1>
+  <p><em>By your friendly French engineer who loves AI and baguettes 🥖</em></p>
+  <p><strong>Meta:</strong> This post explains the Adafactor optimizer, a clever way to train huge AI models using much less memory, in a way even a ten-year-old can understand.</p>
+
+  <h2>Introduction: The Problem with Big Neural Networks</h2>
+  <p>
+    Imagine you are building a super-smart robot that can translate languages, write poems, or even play chess. To make your robot smart, you need to train a <strong>neural network</strong>—like a giant brain made of math! But as your robot gets smarter, its brain gets bigger and bigger, and soon you run out of space to store all the things you need to remember while teaching it. Oops! What can we do?
+  </p>
+
+  <h2>What is an Optimizer? (And Why Should I Care?)</h2>
+  <p>
+    When you teach a robot, you use something called an <strong>optimizer</strong>. Think of it like a coach who tells the robot how to get better at its job, step by step. The most basic coach is called <strong>Stochastic Gradient Descent (SGD)</strong>. It just says, "Go a little bit in the direction that makes you better." But there are fancier coaches, like <strong>Adam</strong> and <strong>RMSProp</strong>, who keep track of how well each part of the brain is learning and adjust the steps to be smarter.
+  </p>
+
+  <h2>Why Memory Matters in Training Big Models</h2>
+  <p>
+    Here’s the problem: these fancy coaches (optimizers) need to remember a lot of things for every single part of the robot’s brain. If your robot has a billion brain cells (parameters), the optimizer needs to remember billions of extra numbers! That’s like trying to fit a whole bakery into your backpack. Not possible, eh?
+  </p>
+
+  <h2>The Magic Trick: Adafactor’s Memory-Saving Idea</h2>
+  <h3>How Adam Works (The Simple Version)</h3>
+  <p>
+    Adam keeps two special notebooks for every brain cell: one for the average direction it’s been moving (momentum), and one for how bumpy the road has been (the squared gradients). This helps Adam decide how big a step to take for each cell.
+  </p>
+  <h3>What Adafactor Changes</h3>
+  <p>
+    Adafactor says, "Wait! Instead of keeping a notebook for every single cell, what if we just keep track of the <strong>rows</strong> and <strong>columns</strong> in the brain’s big tables (matrices)?" It’s like, instead of remembering every single cookie you baked, you just remember how many cookies you made in each row and each column of your baking tray.
+  </p>
+  <div class="note">
+    <strong>Geeky fact:</strong> If your brain table is 1000 by 1000, Adam needs to remember 1,000,000 numbers. Adafactor only needs 2,000! That’s a huge saving.
+  </div>
+  <h3>The “Row and Column” Trick</h3>
+  <p>
+    By keeping just the row and column sums, Adafactor can estimate what’s happening for each cell pretty well, without needing to remember everything. It’s a bit like magic, but it’s really just clever math.
+  </p>
+
+  <h2>Making Training Stable: Update Clipping and Decay Schedules</h2>
+  <h3>Why Training Can Go Crazy</h3>
+  <p>
+    Sometimes, if you’re not careful, the robot’s brain can get too excited and make giant leaps, which makes it forget everything or get confused. This happens if the optimizer’s memory of the past is too slow to catch up with what’s happening now.
+  </p>
+  <h3>How Adafactor Keeps Things Calm</h3>
+  <ul>
+    <li><strong>Update Clipping:</strong> If the robot tries to make a step that’s too big, Adafactor says, "Whoa, slow down!" and makes the step smaller. This keeps things safe.</li>
+    <li><strong>Decay Schedules:</strong> Adafactor also changes how quickly it forgets old information, starting by forgetting quickly and then slowing down. This helps the robot learn fast at first, but not get too wild later.</li>
+  </ul>
+
+  <h2>Relative Step Size: Why Size Matters</h2>
+  <p>
+    Instead of always taking the same size steps, Adafactor looks at how big the brain cell is and takes a step that’s the right size for it. It’s like if you’re a tiny mouse, you take tiny steps, but if you’re an elephant, you take big steps!
+  </p>
+
+  <h2>Experiments: Does It Work?</h2>
+  <p>
+    The scientists tested Adafactor on a big translation task (making a computer translate English to German). They measured how good the translations were using something called a <strong>BLEU score</strong> (higher is better).
+  </p>
+  <table class="table">
+    <tr>
+      <th>Optimizer</th>
+      <th>Extra Memory Needed</th>
+      <th>BLEU Score (with warmup)</th>
+      <th>BLEU Score (no warmup)</th>
+    </tr>
+    <tr>
+      <td>Adam</td>
+      <td>High</td>
+      <td>25.6</td>
+      <td>0.1 (unstable!)</td>
+    </tr>
+    <tr>
+      <td>Adafactor</td>
+      <td>Low</td>
+      <td>25.4</td>
+      <td>22.4 (stable!)</td>
+    </tr>
+    <tr>
+      <td>SGD</td>
+      <td>Very Low</td>
+      <td>24.3 (best case)</td>
+      <td>diverged (often fails)</td>
+    </tr>
+  </table>
+  <p>
+    <strong>What does this mean?</strong> Adafactor works almost as well as Adam, but uses way less memory, and it doesn’t go crazy when you skip the warmup!
+  </p>
+
+  <h2>Why This Matters for the Future of AI</h2>
+  <p>
+    As we build bigger and smarter robots (or AI models), we need tricks like Adafactor to make sure we don’t run out of memory. This means we can train even bigger brains on the same computers, making our robots even smarter!
+  </p>
+
+  <h2>Conclusion: The Big Picture</h2>
+  <p>
+    Adafactor is a clever way to help your robot learn fast without needing a giant backpack to carry all its notes. It’s like having a super-organized coach who remembers just enough to help you win, but never wastes space. Next time you hear about a giant AI model, remember: maybe it’s using Adafactor!
+  </p>
+
+  <h2>References (for Curious Kids)</h2>
+  <ul>
+    <li><a href="https://arxiv.org/abs/1804.04235">Original Adafactor Paper</a></li>
+    <li><a href="https://github.com/tensorflow/tensor2tensor">Tensor2Tensor Library (code for Adafactor)</a></li>
+    <li>Kingma & Ba, "Adam: A Method for Stochastic Optimization", 2015</li>
+    <li>Vaswani et al., "Attention is All You Need", 2017</li>
+  </ul>
+  <p><em>Merci for reading! If you have questions, ask your favorite AI engineer (or your robot friend).</em></p>
+</body>
+</html>
