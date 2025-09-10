@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BERT Explained for Kids: How a Robot Learned to Read Like a Human</title>
+  <meta name="description" content="A fun, simple explanation of BERT, the AI model that changed how computers understand language. Learn how BERT works, why it's special, and what it means for the future of AI.">
+  <meta property="article:published_time" content="2019-06-03" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a5d9f; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .fun-fact { background: #e3f2fd; border-left: 4px solid #2196f3; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>BERT Explained for Kids: How a Robot Learned to Read Like a Human</h1>
+  <p><em>By a friendly French engineer who loves AI and croissants 🥐</em></p>
+
+  <h2>Introduction: Meet BERT, the Reading Robot</h2>
+  <p>
+    Imagine you have a robot friend who wants to read books, answer your questions, and even help you with your homework. But, oh là là, reading is hard for robots! They don’t really “understand” words like we do. That’s where BERT comes in. BERT is a super-smart computer program made by some clever people at Google. It helps computers understand language almost like a human. Let’s see how!
+  </p>
+
+  <h2>How Do Computers Understand Language?</h2>
+  <p>
+    For a long time, computers were like tourists in a foreign country: they could say “hello” and “goodbye,” but they didn’t really get the jokes or the stories. They could look at words one by one, but not always understand the whole sentence, especially if the important word was at the end!
+  </p>
+  <p>
+    For example, if you say, “The <strong>cat</strong> sat on the <strong>mat</strong>,” a computer might know what “cat” and “mat” mean, but not that the cat is sitting <em>on</em> the mat. Context is everything!
+  </p>
+
+  <h2>Old Ways vs. BERT: What’s New Here?</h2>
+  <p>
+    Before BERT, computers learned to read in two main ways:
+    <ul>
+      <li><strong>Feature-based:</strong> They learned what words mean, then used those meanings as clues for bigger tasks.</li>
+      <li><strong>Fine-tuning:</strong> They learned a little bit about language, then practiced on specific tasks, like answering questions.</li>
+    </ul>
+    But these old ways had a problem: they only looked at words from left to right (like reading a sentence from start to finish), or sometimes right to left. They couldn’t look at both sides at once! It’s like trying to solve a puzzle with only half the pieces.
+  </p>
+
+  <h2>How BERT Learns: Pre-training and Fine-tuning</h2>
+  <h3>Step 1: Pre-training (Learning from Books and Wikipedia)</h3>
+  <p>
+    BERT reads a LOT. Like, more than your school library! It reads books and Wikipedia articles, but it doesn’t just read them straight. It plays two special games:
+  </p>
+  <ul>
+    <li>
+      <strong>Masked Language Model (MLM):</strong> BERT covers up (or “masks”) some words in a sentence and tries to guess them. For example, “My dog is <code>[MASK]</code>” and BERT has to guess “hairy.” This way, BERT learns to use clues from <em>both</em> sides of the missing word!
+    </li>
+    <li>
+      <strong>Next Sentence Prediction (NSP):</strong> BERT gets two sentences and has to guess if the second one really comes after the first. Like, “The man went to the store. He bought milk.” vs. “The man went to the store. Penguins are birds.” Only one makes sense!
+    </li>
+  </ul>
+
+  <h3>Step 2: Fine-tuning (Practicing for Real Tasks)</h3>
+  <p>
+    After BERT has read a ton, it’s ready to help with real jobs: answering questions, finding names in text, or figuring out if two sentences mean the same thing. For each job, BERT gets a little extra training, but it already knows so much from its reading that it learns fast!
+  </p>
+
+  <h2>BERT’s Architecture: Transformers, but Bidirectional!</h2>
+  <p>
+    BERT is built from something called a <strong>Transformer</strong>. No, not the robot cars from the movies! In AI, a Transformer is a special way for computers to pay attention to all the words in a sentence at once. BERT’s secret sauce is that it looks <em>both left and right</em> at the same time. This is called “bidirectional.” It’s like having eyes in the back of your head!
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> BERT stands for <strong>B</strong>idirectional <strong>E</strong>ncoder <strong>R</strong>epresentations from <strong>T</strong>ransformers. That’s a mouthful, eh?
+  </div>
+
+  <h2>How BERT is Used: Tasks and Results</h2>
+  <p>
+    BERT is like a Swiss Army knife for language. Here are some things it can do:
+    <ul>
+      <li><strong>Answer questions</strong> (like on a quiz show!)</li>
+      <li><strong>Find names</strong> and places in text</li>
+      <li><strong>Tell if two sentences mean the same thing</strong></li>
+      <li><strong>Understand if a sentence is happy or sad</strong></li>
+    </ul>
+    When BERT was released, it broke records on 11 different language tasks! It was the best at understanding language, even better than models that were built just for one job.
+  </p>
+  <div class="fun-fact">
+    <strong>Geeky Detail:</strong> BERT comes in two sizes: <code>BERTBASE</code> (110 million parameters) and <code>BERTLARGE</code> (340 million parameters). That’s a lot of numbers!
+  </div>
+
+  <h2>Why BERT Works So Well: The Magic Ingredients</h2>
+  <ul>
+    <li><strong>Bidirectional reading:</strong> BERT looks at the whole sentence, not just one direction.</li>
+    <li><strong>Masked words:</strong> By guessing missing words, BERT learns to use all the clues.</li>
+    <li><strong>Next sentence game:</strong> BERT learns how sentences fit together, not just what words mean.</li>
+    <li><strong>Big data:</strong> BERT reads billions of words, so it knows a lot!</li>
+  </ul>
+
+  <h2>Fun Facts and Geeky Details</h2>
+  <ul>
+    <li>BERT was trained on <strong>Wikipedia</strong> and <strong>BooksCorpus</strong> (that’s 3.3 billion words!).</li>
+    <li>It uses something called <strong>WordPiece embeddings</strong> to break words into pieces, so it can handle new words like “croissanterie.”</li>
+    <li>BERT’s ideas inspired many new models, like RoBERTa, ALBERT, and DistilBERT. It started a whole family of “-BERT” models!</li>
+    <li>Even though BERT is big, you can use smaller versions for your own projects.</li>
+  </ul>
+
+  <h2>Conclusion: Why BERT Changed Everything</h2>
+  <p>
+    BERT made computers much better at reading and understanding language. Now, your phone, your search engine, and even your favorite chatbot might be using BERT or its cousins. It’s like giving robots a superpower for words!
+  </p>
+  <p>
+    So next time you ask your computer a question and it gives a smart answer, remember: maybe BERT helped it out. And if you want to build your own reading robot, BERT is a great place to start. Merci for reading, and happy coding!
+  </p>
+  <hr>
+  <p><em>References: Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. arXiv:1810.04805v2</em></p>
+</body>
+</html>
