@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How T5 Taught Computers to Read, Write, and Think: The Story of the Text-to-Text Transformer</title>
+  <meta name="description" content="A fun, simple explanation of the T5 paper: how Google researchers taught computers to do all kinds of language tasks with one clever model.">
+  <meta property="article:published_time" content="2020-06-30" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; color: #222; background: #f9f9f9; }
+    h1, h2, h3 { color: #2a5d9f; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .fun-fact { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 0.5em 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How T5 Taught Computers to Read, Write, and Think: The Story of the Text-to-Text Transformer</h1>
+  <p><em>By a friendly French engineer who loves both baguettes and big neural nets</em></p>
+
+  <h2>Introduction: Can a Computer Really Understand Language?</h2>
+  <p>
+    Imagine you have a robot friend. You want it to help you with your homework, translate your favorite song, or even write a story. But how does it learn to do all these things? This is the magic of <strong>transfer learning</strong>—a way for computers to learn a lot from reading, and then use that knowledge for many different jobs. In this blog, I’ll explain how a team of clever researchers at Google built a super-smart model called <strong>T5</strong> that can do almost any language task you can imagine!
+  </p>
+
+  <h2>What is T5? The “Text-to-Text” Trick</h2>
+  <p>
+    T5 stands for <strong>Text-to-Text Transfer Transformer</strong>. (Yes, it’s a mouthful, but we geeks love our acronyms!) The big idea is simple but powerful: <strong>every language problem is just turning some text into other text</strong>.
+  </p>
+  <ul>
+    <li>Want to translate English to French? Input: “translate English to French: I love cats.” Output: “J’aime les chats.”</li>
+    <li>Want to summarize a news article? Input: “summarize: The weather was very bad in Mississippi…” Output: “Six people hospitalized after a storm in Attala County.”</li>
+    <li>Want to know if a sentence is positive or negative? Input: “sst2 sentence: This movie is great!” Output: “positive”</li>
+  </ul>
+  <p>
+    By always using text as both input and output, T5 can use the same brain (the same model!) for everything. No more building a new robot for every job.
+  </p>
+
+  <h2>How Does T5 Work? Meet the Transformer</h2>
+  <p>
+    T5 is built on something called a <strong>Transformer</strong>. You can think of it like a super-smart robot brain that is very good at paying attention to words and their meanings. The Transformer reads the input text, thinks about it, and then writes the output text.
+  </p>
+  <p>
+    The clever part is that T5 always expects text in, and always gives text out. So, whether you want a translation, a summary, or an answer to a question, you just give it the right “prefix” (like “translate English to German:”) and it knows what to do.
+  </p>
+
+  <h2>How Did They Train T5? A Giant Reading Adventure</h2>
+  <p>
+    To get really smart, T5 needed to read a lot. But not just any text—<strong>clean</strong> text! The researchers built a huge dataset called the <strong>Colossal Clean Crawled Corpus (C4)</strong>. It’s like a mountain of books, articles, and web pages, but with all the junk, bad words, and weird code removed.
+  </p>
+  <p>
+    First, T5 <strong>pre-trains</strong> by reading this mountain and learning to fill in missing words (like a giant game of Mad Libs). Then, it <strong>fine-tunes</strong> on specific tasks, like answering questions or translating languages.
+  </p>
+
+  <h2>What Did They Test? T5’s Many Jobs</h2>
+  <p>
+    The researchers wanted to see if T5 could do lots of different things. So they tested it on:
+  </p>
+  <ul>
+    <li><strong>Translation</strong> (English to German, French, Romanian…)</li>
+    <li><strong>Summarization</strong> (making long stories short)</li>
+    <li><strong>Question Answering</strong> (like SQuAD)</li>
+    <li><strong>Text Classification</strong> (is this sentence happy or sad?)</li>
+    <li>And more!</li>
+  </ul>
+  <p>
+    For each job, they just changed the prefix in the input text. T5 learned to do them all with the same brain!
+  </p>
+
+  <h2>What Did They Find? The Power of Scale</h2>
+  <p>
+    T5 did amazingly well—better than almost any other model at the time on many tasks. The secret? <strong>Bigger models and more data make better results</strong>. When they made T5 huge (like, 11 billion parameters—imagine 11,000,000,000 little switches in its brain!), it got even smarter.
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The researchers call this the “bitter lesson” of AI: in the end, the more you scale up, the better it works—even if it’s not elegant!
+  </div>
+
+  <h2>Why Does This Matter?</h2>
+  <p>
+    Before T5, you needed a different model for every language job. Now, with T5, you can use one model for everything. This makes life easier for engineers, researchers, and even kids who want to play with AI. Plus, Google released the code and models, so anyone can try it!
+  </p>
+
+  <h2>Geeky Details and Fun Facts</h2>
+  <ul>
+    <li><strong>How does T5 learn?</strong> It plays a game where it hides parts of sentences and tries to guess the missing words. This helps it get really good at understanding context.</li>
+    <li><strong>How did they clean the data?</strong> They removed pages with bad words, code, or weird stuff, and only kept real, natural English sentences.</li>
+    <li><strong>How big is T5?</strong> The biggest version has 11 billion parameters. That’s like having a brain with 11 billion tiny knobs to tune!</li>
+    <li><strong>How do you “ask” T5 to do something?</strong> Just add a prefix! For example, “summarize:”, “translate English to French:”, or “cola sentence:”</li>
+  </ul>
+
+  <h2>Conclusion: The Future is Text-to-Text</h2>
+  <p>
+    T5 showed that with enough data, a clever idea, and a lot of computing power, you can build a model that does almost anything with language. The future? Even bigger models, more languages, and maybe one day, a robot that can help you with your homework, write you a poem, and explain quantum physics—all in one!
+  </p>
+  <p>
+    <em>Merci for reading! If you want to play with T5, check out the open-source code and models. And remember: in AI, sometimes the simplest ideas (with a lot of data!) are the most powerful.</em>
+  </p>
+</body>
+</html>
