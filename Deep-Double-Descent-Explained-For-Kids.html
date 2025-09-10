@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Why Bigger AI Models Sometimes Get Worse: The Mystery of Double Descent</title>
+  <meta name="description" content="Explaining the 'double descent' phenomenon in deep learning: why making models bigger or adding more data can sometimes make AI worse, not better.">
+  <meta property="article:published_time" content="2019-12-14" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    .figure { background: #fff; border: 1px solid #ddd; padding: 1em; margin: 2em 0; border-radius: 8px; }
+    .note { background: #e7f3fe; border-left: 4px solid #2196F3; padding: 1em; margin: 1em 0; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>Why Bigger AI Models Sometimes Get Worse: The Mystery of Double Descent</h1>
+  <p><em>By your friendly French engineer, explaining deep learning with a geeky twist!</em></p>
+  <p><strong>Meta:</strong> Published on December 14, 2019</p>
+
+  <h2>Introduction: When More Is Less</h2>
+  <p>
+    Imagine you are building a robot to sort your socks. You think, "If I give my robot a bigger brain, it will get smarter, non?" But then, surprise! Sometimes, making the robot's brain bigger makes it <em>worse</em> at sorting socks. How is this possible? This is not just a silly story—it's a real mystery in AI called <strong>double descent</strong>.
+  </p>
+  <p>
+    In this blog, I will explain what double descent is, why it happens, and what it means for engineers and AI fans. I promise, no PhD required—just a bit of curiosity!
+  </p>
+
+  <h2>The Classic Story: Bigger Models, Bigger Problems?</h2>
+  <h3>Bias-Variance Tradeoff: The Old Rule</h3>
+  <p>
+    In the old days, before deep learning was cool, we had a simple rule: if you make your model (the robot's brain) too simple, it cannot learn enough (we call this <strong>high bias</strong>). If you make it too complicated, it starts to memorize everything—even the mistakes! (This is <strong>high variance</strong>.) The best model is somewhere in the middle.
+  </p>
+  <div class="figure">
+    <strong>Classic U-curve:</strong> As you make the model more complex, test error first goes down, then up. Like a U!
+  </div>
+
+  <h3>But Deep Learning Broke the Rule</h3>
+  <p>
+    With deep learning, we make models with millions (or billions!) of parameters. They are so big, they can even memorize random noise. But, strangely, these giant models often work <em>better</em> than small ones. The old U-curve is broken. What is happening?
+  </p>
+
+  <h2>The Double Descent Curve: When More Is Less, Then More Is More</h2>
+  <h3>What Is Double Descent?</h3>
+  <p>
+    Double descent is like a roller coaster for test error. As you make your model bigger:
+    <ol>
+      <li>First, test error goes down (good!),</li>
+      <li>Then, it goes up (bad!),</li>
+      <li>Then, it goes down again (good!).</li>
+    </ol>
+    So, the curve has two dips—hence, "double descent."
+  </p>
+  <div class="figure">
+    <strong>Imagine:</strong> You build a bigger and bigger robot brain. At first, it gets smarter. Then, suddenly, it gets confused and makes more mistakes. But if you keep making it even bigger, it gets smart again!
+  </div>
+
+  <h3>Model-wise Double Descent: Making Models Bigger</h3>
+  <p>
+    The first kind of double descent happens when you make your model wider or deeper. For example, you take a ResNet (a kind of neural network) and add more filters or layers. At a certain point, the model can fit the training data perfectly—even the noise. This is called the <strong>interpolation threshold</strong>. Around this point, test error peaks. But if you keep going, the error drops again.
+  </p>
+
+  <h3>Epoch-wise Double Descent: Training Longer</h3>
+  <p>
+    The second kind is about how long you train. If you train a fixed model for more and more epochs (passes over the data), you can also see double descent. At first, more training helps. Then, it hurts. Then, with even more training, it helps again!
+  </p>
+
+  <h3>Sample-wise Non-Monotonicity: More Data Can Hurt!</h3>
+  <p>
+    This one is really weird. Sometimes, if you give your model <em>more</em> data, it actually gets <em>worse</em> at the task! This happens near the critical regime, where the model is just barely able to fit the data. Adding more data shifts the "bad" peak to the right, so for some model sizes, more data = more mistakes.
+  </p>
+  <div class="note">
+    <strong>Geek fact:</strong> This is not just for deep learning. Even simple linear models can show this double descent!
+  </div>
+
+  <h2>Why Does This Happen? The Secret of Effective Model Complexity</h2>
+  <h3>What Is Effective Model Complexity (EMC)?</h3>
+  <p>
+    The authors introduce a new idea: <strong>Effective Model Complexity</strong>. It's not just about how many parameters your model has. It's about how many training samples your model can fit perfectly, given its size, the data, and how you train it.
+  </p>
+  <p>
+    If your model's EMC is much less than the number of samples, making it more complex helps. If EMC is much more, making it even more complex also helps. But if EMC is about the same as the number of samples, you are in the "danger zone"—the critical regime—where things get weird.
+  </p>
+
+  <h3>The Critical Regime and Noise</h3>
+  <p>
+    Around the interpolation threshold, your model is just barely able to fit the data. If there is noise (wrong labels, messy data), the model has to "twist itself" to fit everything, and this makes it bad at generalizing. But if you make the model even bigger, it can "absorb" the noise and still learn the real patterns.
+  </p>
+
+  <h2>What Does This Mean for Engineers?</h2>
+  <h3>When Bigger Is Not Better</h3>
+  <p>
+    If your model is in the critical regime, making it a little bigger can make it worse! You might see a peak in test error. But if you go much bigger, things get better again. So, don't just assume "bigger is always better."
+  </p>
+
+  <h3>When More Data Is Not Better</h3>
+  <p>
+    Usually, more data is good. But near the critical regime, more data can actually hurt—unless you also make your model bigger or change your training.
+  </p>
+
+  <h3>Early Stopping and Regularization</h3>
+  <p>
+    If you stop training early (before the model fits all the data), you can avoid the double descent peak. Regularization (like weight decay) can also help. But sometimes, even with early stopping, double descent can sneak in!
+  </p>
+
+  <h2>Final Thoughts: Embrace the Weirdness</h2>
+  <p>
+    Double descent shows us that deep learning is full of surprises. The old rules are not always true. As engineers, we must experiment, measure, and not be afraid of a little weirdness. Sometimes, the best way to make your robot smarter is to make it <em>much</em> bigger—or to stop training at just the right time.
+  </p>
+  <p>
+    If you want to dive deeper, check out the original paper: <a href="https://arxiv.org/abs/1912.02292" target="_blank">Deep Double Descent: Where Bigger Models and More Data Hurt</a>.
+  </p>
+  <p>
+    Merci for reading! If you have questions, or want to talk about socks and robots, just ask. 😄
+  </p>
+</body>
+</html>
