@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How AlphaZero Learned to Beat Everyone at Chess, Shogi, and Go (Without Any Help!)</title>
+  <meta name="description" content="Discover how AlphaZero, a clever computer program, taught itself to play chess, shogi, and Go better than any human or computer—just by playing with itself!">
+  <meta property="article:published_time" content="2017-12-15" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d7a; }
+    .fun { background: #e0f7fa; padding: 1em; border-radius: 8px; margin: 1em 0; }
+    .diagram { text-align: center; margin: 2em 0; }
+    code { background: #eee; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>How AlphaZero Learned to Beat Everyone at Chess, Shogi, and Go (Without Any Help!)</h1>
+  <p><em>By a friendly French engineer who loves games and AI</em></p>
+
+  <h2>Introduction: The Magic of Learning to Play Games</h2>
+  <p>
+    Imagine you want to become the best chess player in the world. But—here is the twist!—nobody teaches you any tricks, and you don’t even watch other people play. You just play games against yourself, over and over, learning from your mistakes. Sounds impossible, non? Well, this is exactly what AlphaZero, a clever computer program from DeepMind, did. And it worked so well, it became better than any human or computer at chess, shogi (Japanese chess), and Go!
+  </p>
+
+  <h2>What is AlphaZero?</h2>
+  <p>
+    AlphaZero is a computer program, but not just any program. It is like a super student that learns by playing games with itself. It started knowing only the rules—no special tips, no advice from grandmasters, rien! And in just a few hours, it became a champion.
+  </p>
+
+  <h2>How Did Computers Play Chess Before?</h2>
+  <p>
+    Before AlphaZero, the best chess computers (like Stockfish or Deep Blue) were like super calculators. They looked at millions of possible moves every second, using clever tricks and advice from human experts. These programs had lots of “if this, then that” rules, and special knowledge about chess that people had discovered over hundreds of years.
+  </p>
+
+  <h2>What Makes AlphaZero Special?</h2>
+  <h3>Learning by Playing with Itself</h3>
+  <p>
+    AlphaZero did not need any human advice. It just played games against itself, starting from random moves. Each time it lost, it learned a little. Each time it won, it learned what worked. It’s like if you played chess against yourself every day, and each time you got a bit smarter.
+  </p>
+  <h3>No Human Tricks Needed</h3>
+  <p>
+    AlphaZero did not use any opening books, endgame tables, or special chess tricks. It only knew the rules. Everything it learned, it discovered by itself. This is called <strong>tabula rasa</strong> learning—a fancy Latin way to say “starting from a blank slate.”
+  </p>
+
+  <h2>How Does AlphaZero Learn?</h2>
+  <h3>Neural Networks and Self-Play</h3>
+  <p>
+    AlphaZero uses something called a <strong>neural network</strong>. You can think of this like a brain made of math. It looks at the board and tries to guess which moves are good, and who is winning. At first, it is just guessing! But after playing millions of games against itself, it gets very, very good at predicting.
+  </p>
+  <h3>Monte Carlo Tree Search (MCTS)</h3>
+  <p>
+    Instead of checking every possible move (which would take forever), AlphaZero uses a clever trick called <strong>Monte Carlo Tree Search</strong> (MCTS). It tries out some moves, sees what happens, and uses its neural network to focus on the most promising ideas. It’s a bit like exploring a maze by trying different paths, but always choosing the ones that look best.
+  </p>
+  <div class="diagram">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Monte_Carlo_tree_search_diagram.png" alt="Monte Carlo Tree Search Diagram" width="400" />
+    <p><small>Monte Carlo Tree Search helps AlphaZero focus on the best moves.</small></p>
+  </div>
+
+  <h2>How Good is AlphaZero?</h2>
+  <h3>Beating the Best: Stockfish, Elmo, and AlphaGo</h3>
+  <p>
+    After just a few hours of learning, AlphaZero played matches against the world’s best computer programs:
+    <ul>
+      <li><strong>Stockfish</strong> (chess champion)</li>
+      <li><strong>Elmo</strong> (shogi champion)</li>
+      <li><strong>AlphaGo Zero</strong> (Go champion)</li>
+    </ul>
+    And guess what? AlphaZero won against all of them! In chess, it did not lose a single game to Stockfish. In shogi, it crushed Elmo. In Go, it beat the previous best version of itself.
+  </p>
+  <h3>Learning Super Fast</h3>
+  <p>
+    AlphaZero learned to play chess better than Stockfish in just 4 hours. For shogi, it took less than 2 hours. For Go, 8 hours. That’s faster than a school day!
+  </p>
+  <div class="diagram">
+    <img src="https://i.imgur.com/1Q9ZQ9v.png" alt="AlphaZero Training Progress" width="500" />
+    <p><small>AlphaZero’s skill (Elo rating) goes up super fast as it trains!</small></p>
+  </div>
+
+  <h2>Fun Facts and Surprises</h2>
+  <div class="fun">
+    <ul>
+      <li><strong>AlphaZero plays like a human:</strong> It searches much fewer moves than Stockfish, but chooses smarter ones, a bit like a grandmaster.</li>
+      <li><strong>It discovered famous chess openings:</strong> Even though nobody told it about the “Queen’s Gambit” or “Sicilian Defense,” AlphaZero found and used these strategies by itself!</li>
+      <li><strong>It can adapt to any game:</strong> The same AlphaZero algorithm worked for chess, shogi, and Go, with almost no changes.</li>
+    </ul>
+  </div>
+
+  <h2>Why Is This Important?</h2>
+  <p>
+    AlphaZero shows that a computer can learn to master very complicated games, just by playing with itself and learning from experience. It does not need to be told what to do by humans. This is a big step for artificial intelligence, because it means computers might one day learn to solve all kinds of problems—maybe even ones we don’t know how to solve ourselves!
+  </p>
+
+  <h2>Conclusion: The Future of Learning Machines</h2>
+  <p>
+    AlphaZero is like a super curious student who never gets tired and always wants to learn. By playing, losing, and trying again, it became the best at chess, shogi, and Go. Maybe one day, computers will help us solve even bigger puzzles, from science to medicine to making the world a better place. For now, AlphaZero reminds us: sometimes, the best way to learn is just to play!
+  </p>
+  <hr>
+  <p><small>Based on the paper: “Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm” by David Silver et al., DeepMind, 2017.</small></p>
+</body>
+</html>
