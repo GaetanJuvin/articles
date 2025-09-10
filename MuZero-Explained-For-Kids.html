@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How MuZero Became a Game Master: AI Planning Without Knowing the Rules</title>
+  <meta name="description" content="Explaining DeepMind's MuZero: the AI that learned to master Atari, Go, Chess, and Shogi without knowing the rules. A fun, simple guide for curious minds!">
+  <meta property="article:published_time" content="2025-09-21" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d69; }
+    .fun-fact { background: #e7f3fe; border-left: 4px solid #2196F3; padding: 0.5em 1em; margin: 1em 0; }
+    .diagram { background: #fff; border: 1px solid #ccc; padding: 1em; margin: 1em 0; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>How MuZero Became a Game Master: AI Planning Without Knowing the Rules</h1>
+  <p><em>By a French engineer who loves games, AI, and a good baguette.</em></p>
+
+  <h2>Introduction: The Big Idea</h2>
+  <p>
+    Imagine you want to become a champion at chess, Go, or even those old-school Atari games, but—zut alors!—nobody tells you the rules. You just watch, play, and somehow, you get better and better, until you beat everyone, even the best computers. Sounds like magic? Well, this is almost what MuZero, a clever AI from DeepMind, did. Let me explain how, in a way even my little cousin (she is ten) would understand!
+  </p>
+
+  <h2>What is Planning in Games?</h2>
+  <p>
+    When you play a game like chess, you think ahead: "If I move my knight here, what will happen next? What will my opponent do?" This is called <strong>planning</strong>. Computers do this too, but they usually need to know all the rules of the game to plan well.
+  </p>
+  <div class="diagram">
+    <strong>Imagine:</strong> You are in a maze. If you know the map, you can plan the best way out. If you don't, you have to learn as you go!
+  </div>
+
+  <h2>The Problem: Why is Planning Hard in Real Life?</h2>
+  <p>
+    In real life, we often don't know all the rules. Maybe the world is too complicated, or the rules keep changing. For computers, this is a big problem. Most smart game AIs (like the famous AlphaZero) need to know the rules to plan. But what if we want an AI that can learn to plan <em>without</em> being told the rules?
+  </p>
+
+  <h2>Meet MuZero: The Hero of Our Story</h2>
+  <p>
+    MuZero is a new kind of AI. It learned to play games like Go, chess, shogi (a Japanese chess), and even 57 different Atari games. But here is the twist: <strong>MuZero was never told the rules!</strong> It just played, watched what happened, and figured out how to win.
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> MuZero beat the best AIs in many games, even though it started knowing nothing about how the games work!
+  </div>
+
+  <h2>How Does MuZero Work?</h2>
+  <h3>The Three Brains: Representation, Dynamics, Prediction</h3>
+  <p>
+    MuZero is like a robot with three clever brains:
+    <ul>
+      <li><strong>Representation Brain:</strong> Looks at the game (like a picture of the board or screen) and makes a summary in its head.</li>
+      <li><strong>Dynamics Brain:</strong> Imagines what will happen if it makes a move, even if it doesn't know the rules exactly.</li>
+      <li><strong>Prediction Brain:</strong> Tries to guess: "If I do this, will I win? What move should I make?"</li>
+    </ul>
+  </p>
+  <div class="diagram">
+    <strong>Simple Example:</strong> It's like you see a chessboard, imagine moving a piece, and then guess if you are closer to winning. You repeat this in your head, many times, for different moves.
+  </div>
+
+  <h3>How MuZero Learns</h3>
+  <p>
+    MuZero plays lots and lots of games against itself. After each game, it remembers what happened and tries to get better at predicting:
+    <ul>
+      <li>What reward will I get if I make this move?</li>
+      <li>What is the best move to make?</li>
+      <li>Am I winning or losing?</li>
+    </ul>
+    It doesn't try to learn every detail of the game, just the things that help it plan better.
+  </p>
+
+  <h3>How MuZero Plays</h3>
+  <p>
+    When it's time to play, MuZero uses a trick called <strong>Monte-Carlo Tree Search</strong> (MCTS). It imagines many possible futures, using its three brains, and picks the move that looks best. Even if it doesn't know the rules, it gets really good at guessing what will happen!
+  </p>
+
+  <h2>What Makes MuZero Special?</h2>
+  <p>
+    Before MuZero, the best AIs (like AlphaZero) needed to know the rules to plan. MuZero doesn't! It learns just by playing and watching. This means it can work in places where the rules are unknown or too complicated to write down.
+  </p>
+  <div class="fun-fact">
+    <strong>Geeky Detail:</strong> MuZero doesn't try to rebuild the whole world in its head. It only learns what it needs to make good plans. This makes it faster and smarter!
+  </div>
+
+  <h2>Results: How Good is MuZero?</h2>
+  <p>
+    MuZero was tested on:
+    <ul>
+      <li><strong>Go, Chess, Shogi:</strong> It played as well as AlphaZero, which was already superhuman.</li>
+      <li><strong>Atari Games:</strong> It beat the best previous AIs in most games, even though Atari games are tricky and look very different from board games.</li>
+    </ul>
+  </p>
+  <div class="diagram">
+    <img src="https://drive.google.com/uc?id=13MenX_Juntz0077Hrexo58CMlbscYWyC&page=5" alt="MuZero performance chart" style="max-width:100%;">
+    <p><em>MuZero's blue line goes up, up, up! It learns fast and beats the old champions.</em></p>
+  </div>
+  <div class="fun-fact">
+    <strong>Did you know?</strong> In some Atari games, MuZero scored more than 10,000% better than a human!
+  </div>
+
+  <h2>Why Does This Matter?</h2>
+  <p>
+    If an AI can learn to plan and win without knowing the rules, it can help in real life, too. Maybe it can help robots learn to cook, drive, or solve problems where we don't know all the details. This is a big step for making smarter, more flexible machines.
+  </p>
+
+  <h2>Conclusion: The Future of Smart Machines</h2>
+  <p>
+    MuZero shows us that you don't always need to know the rules to win. Sometimes, you just need to learn what matters, try things out, and get better every time. Maybe next time you play a new game, you can try to be like MuZero—curious, clever, and never afraid to learn!
+  </p>
+  <p>
+    <em>Merci for reading! If you have questions, or want to play chess with me, just ask. 😉</em>
+  </p>
+
+  <h2>References (for grown-ups)</h2>
+  <ul>
+    <li>Julian Schrittwieser et al., "Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model", arXiv:1911.08265v2, 2020. <a href="https://arxiv.org/abs/1911.08265">Read the paper</a></li>
+    <li>DeepMind's blog: <a href="https://deepmind.com/blog/article/muzero-mastering-go-chess-shogi-and-atari-without-rules">MuZero: Mastering Go, Chess, Shogi and Atari without rules</a></li>
+  </ul>
+</body>
+</html>
