@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How Chain-of-Thought Prompting Makes AI Think Like Us (Even a 10-Year-Old Can Get It!)</title>
+  <meta name="description" content="Explaining the magic of chain-of-thought prompting in large language models, using simple words and fun examples. Discover how AI learns to reason step by step, just like you!">
+  <meta property="article:published_time" content="2025-09-20" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; color: #222; background: #f9f9f9; }
+    h1, h2, h3 { color: #2a4d7a; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .example { background: #e6f2ff; border-left: 4px solid #2a4d7a; padding: 1em; margin: 1em 0; }
+    .fun-fact { background: #fffbe6; border-left: 4px solid #ffd700; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How Chain-of-Thought Prompting Makes AI Think Like Us (Even a 10-Year-Old Can Get It!)</h1>
+  <p><em>By a French engineer who loves to make AI less mysterious (and a little bit fun!)</em></p>
+  <p>
+    Imagine you’re solving a tricky math problem. Do you just shout the answer, or do you think step by step? Most of us, even when we are ten, break things down: “First I do this, then that, and voilà, I get the answer!” What if I told you that the latest, biggest AI models can do the same—if we show them how? This is the magic of <strong>chain-of-thought prompting</strong>. Let’s dive in, with no jargon, just logic and a bit of French geek charm.
+  </p>
+
+  <h2>What Is Chain-of-Thought Prompting?</h2>
+  <p>
+    Okay, so you know how when you’re stuck on a math word problem, your teacher says, “Show your work!”? Chain-of-thought prompting is like telling an AI to “show its work” too. Instead of just giving the answer, the AI writes out the steps it takes to get there.
+  </p>
+  <div class="example">
+    <strong>Example:</strong><br>
+    <em>Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now?</em><br>
+    <strong>Chain-of-thought answer:</strong> Roger started with 5 balls. 2 cans of 3 tennis balls each is 6 tennis balls. 5 + 6 = 11. The answer is 11.
+  </div>
+  <p>
+    See? The AI is thinking out loud, just like you would!
+  </p>
+
+  <h2>Why Does This Matter?</h2>
+  <ul>
+    <li><strong>Better Reasoning:</strong> When AI explains its steps, it solves harder problems—math, logic, even common sense questions.</li>
+    <li><strong>Debugging:</strong> If the AI makes a mistake, we can see where it went wrong. Like checking your friend’s math homework.</li>
+    <li><strong>More Trust:</strong> It’s easier to trust an answer when you see the steps, right?</li>
+  </ul>
+
+  <h2>How Does It Work?</h2>
+  <h3>1. The Usual Way: Standard Prompting</h3>
+  <p>
+    Before, we just gave the AI a few examples of questions and answers. The AI would try to guess the answer, but for hard problems, it often failed.
+  </p>
+  <div class="example">
+    <strong>Standard Prompting:</strong><br>
+    Q: The cafeteria had 23 apples. If they used 20 to make lunch and bought 6 more, how many apples do they have?<br>
+    A: The answer is 27. <em>(Oops, that’s wrong! It should be 9.)</em>
+  </div>
+
+  <h3>2. The New Way: Chain-of-Thought Prompting</h3>
+  <p>
+    Now, we give the AI examples where each answer is explained step by step. The AI learns to copy this style and “think out loud.”
+  </p>
+  <div class="example">
+    <strong>Chain-of-Thought Prompting:</strong><br>
+    Q: The cafeteria had 23 apples. They used 20 to make lunch. So they had 23 - 20 = 3. They bought 6 more apples, so they have 3 + 6 = 9. The answer is 9.
+  </div>
+
+  <h2>Does It Really Work?</h2>
+  <p>
+    Oh là là, yes! The researchers tested this on some of the biggest AI models in the world (like PaLM 540B and GPT-3). When they used chain-of-thought prompting, the AI solved much harder problems, especially in math and logic.
+  </p>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> With just 8 chain-of-thought examples, the PaLM 540B model beat the previous best AI on a big math test (GSM8K), even beating models that were specially trained for the test!
+  </div>
+
+  <h2>What Kinds of Problems Can AI Solve With This?</h2>
+  <ul>
+    <li><strong>Math Word Problems:</strong> Like the ones above, with lots of steps.</li>
+    <li><strong>Commonsense Reasoning:</strong> “Where would you go if you want to find a lot of people?” (Answer: populated areas, not a desert!)</li>
+    <li><strong>Symbolic Reasoning:</strong> Like figuring out the last letters of words and putting them together, or tracking the state of a coin after several flips.</li>
+  </ul>
+  <div class="example">
+    <strong>Symbolic Reasoning Example:</strong><br>
+    Q: Take the last letters of the words in “Lady Gaga” and concatenate them.<br>
+    A: The last letter of “Lady” is “y”. The last letter of “Gaga” is “a”. Concatenating them is “ya”. So the answer is ya.
+  </div>
+
+  <h2>Why Does Chain-of-Thought Only Work for Big Models?</h2>
+  <p>
+    Here’s a geeky secret: Small AI models try to “think out loud” but often get confused or make silly mistakes. Only the really big models (with 100 billion parameters or more!) can do this well. It’s like how a little kid might try to explain their math, but an older student does it better.
+  </p>
+
+  <h2>Is It Always Perfect?</h2>
+  <p>
+    Non! Sometimes the AI still makes mistakes, even with chain-of-thought. But now, we can see the steps and figure out what went wrong. Also, writing good examples for the AI to copy (“prompt engineering”) still matters a lot.
+  </p>
+
+  <h2>What’s Next?</h2>
+  <ul>
+    <li>Can we make smaller models do chain-of-thought too? (It would be cheaper and faster!)</li>
+    <li>Can we use this for even more types of problems, like translating languages or writing stories?</li>
+    <li>How do we make sure the AI’s reasoning is always correct, not just lucky?</li>
+  </ul>
+
+  <h2>Summary: Why Should You Care?</h2>
+  <p>
+    Chain-of-thought prompting is like teaching AI to think step by step, just like you do in school. It makes AI smarter, more reliable, and easier to understand. Next time you see an AI solving a tough problem, remember: it might just be thinking out loud, thanks to a few clever examples!
+  </p>
+
+  <h2>References (for the curious!)</h2>
+  <ul>
+    <li>Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E. H., Le, Q. V., Zhou, D. (2023). <em>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</em>. arXiv:2201.11903v6</li>
+    <li>Brown, T. et al. (2020). <em>Language Models are Few-Shot Learners</em>. NeurIPS.</li>
+    <li>Cobbe, K. et al. (2021). <em>Training verifiers to solve math word problems</em>. arXiv:2110.14168</li>
+  </ul>
+
+  <p style="font-size: 0.9em; color: #888;">
+    Merci for reading! If you have questions, or want to see more AI explained like you’re ten, let me know. À bientôt!
+  </p>
+</body>
+</html>
