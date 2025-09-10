@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How to Teach a Giant Robot to Listen: InstructGPT and Human Feedback Explained for Kids</title>
+  <meta name="description" content="Discover how scientists taught big language models like GPT-3 to follow instructions and be more helpful, honest, and safe—using feedback from real people!">
+  <meta property="article:published_time" content="2025-09-20" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d8f; }
+    code, pre { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .fun-fact { background: #e0f7fa; border-left: 4px solid #00bcd4; padding: 1em; margin: 1em 0; }
+    .example { background: #fffde7; border-left: 4px solid #ffd600; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How to Teach a Giant Robot to Listen: InstructGPT and Human Feedback Explained for Kids</h1>
+  <p><em>By a French engineer who loves robots, croissants, and making things simple</em></p>
+  <meta property="article:published_time" content="2025-09-20" />
+
+  <h2>Introduction: Can a Robot Really Understand What You Want?</h2>
+  <p>
+    Imagine you have a super-smart robot friend who can read and write anything. You ask it to help with your homework, tell a story, or answer a question. But sometimes, instead of helping, it says something silly, makes up facts, or even says things that are not nice. Wouldn’t it be better if your robot could really listen and do what you want, in a way that is helpful, honest, and safe?
+  </p>
+  <p>
+    That’s exactly what a group of scientists at OpenAI wanted to fix! They wrote a paper called <strong>“Training language models to follow instructions with human feedback”</strong>. Let’s break down what they did, step by step, so even a ten-year-old (or a French engineer with a sweet tooth) can understand.
+  </p>
+
+  <h2>Why Big Robots (Language Models) Don’t Always Listen</h2>
+  <p>
+    Robots like GPT-3 are trained by reading lots and lots of text from the internet. Their main job is to guess the next word in a sentence. But this is not the same as understanding what you want! Sometimes, they:
+  </p>
+  <ul>
+    <li>Make up facts (like saying the moon is made of cheese)</li>
+    <li>Say things that are rude or not true</li>
+    <li>Don’t follow your instructions at all</li>
+  </ul>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The biggest GPT-3 model has 175 billion “neurons” (okay, not real neurons, but you get the idea). That’s a lot of brainpower, but it still doesn’t mean it knows how to be polite!
+  </div>
+
+  <h2>How Do You Teach a Robot to Be Helpful, Honest, and Harmless?</h2>
+  <p>
+    The scientists wanted their robot to be three things:
+  </p>
+  <ul>
+    <li><strong>Helpful</strong>: It should do what you ask, like a good assistant.</li>
+    <li><strong>Honest</strong>: It should tell the truth and not make up stuff.</li>
+    <li><strong>Harmless</strong>: It should not say things that are mean or dangerous.</li>
+  </ul>
+  <p>
+    But how do you teach a robot these things? You can’t just say, “Be nice!” and hope for the best. Instead, you need to show it, again and again, what good behavior looks like.
+  </p>
+
+  <h2>The Secret Sauce: Human Feedback</h2>
+  <p>
+    Here’s the clever part: the scientists used <strong>real people</strong> to teach the robot! They did this in three main steps:
+  </p>
+  <ol>
+    <li>
+      <strong>Show the Robot Good Examples</strong><br>
+      People wrote instructions and showed the robot how to answer them correctly. This is called <strong>supervised learning</strong>.
+    </li>
+    <li>
+      <strong>Let the Robot Try, Then Give Feedback</strong><br>
+      The robot tries to answer new instructions. People look at several answers and say which one they like best. This helps the robot learn what people prefer.
+    </li>
+    <li>
+      <strong>Reward the Robot for Good Behavior</strong><br>
+      The robot gets a “reward” when it does well (like a dog getting a treat). This is called <strong>reinforcement learning from human feedback</strong> (RLHF). The robot keeps trying to get more rewards by being more helpful, honest, and harmless.
+    </li>
+  </ol>
+  <div class="example">
+    <strong>Example:</strong> If you ask, “Write a story about a frog who travels to Ancient Greece,” the robot should write a fun story about a frog, not just repeat your question or say something random.
+  </div>
+
+  <h2>What Did the Scientists Find?</h2>
+  <ul>
+    <li>
+      <strong>Smaller, Well-Trained Robots Can Be Better!</strong><br>
+      The new robot, called <strong>InstructGPT</strong>, had only 1.3 billion “neurons” but was preferred by people over the giant 175 billion neuron GPT-3! It’s like a small, well-behaved dog being better than a giant, wild one.
+    </li>
+    <li>
+      <strong>More Truthful and Less Toxic</strong><br>
+      InstructGPT made up facts less often and said fewer mean things.
+    </li>
+    <li>
+      <strong>Still Makes Mistakes</strong><br>
+      Sometimes, the robot still gets confused, makes up answers, or goes along with silly questions (like “Why should I eat socks after meditating?”).
+    </li>
+  </ul>
+
+  <h2>How Did They Test the Robot?</h2>
+  <p>
+    The scientists used lots of different tests:
+  </p>
+  <ul>
+    <li>They asked real people to rate the robot’s answers on how good, truthful, and safe they were.</li>
+    <li>They checked if the robot could follow instructions in different languages (like French or Swedish!) and even answer questions about computer code.</li>
+    <li>They made sure the robot didn’t just memorize what the trainers liked, but could also please new people who never trained it before.</li>
+  </ul>
+  <div class="fun-fact">
+    <strong>Geeky Detail:</strong> The robot was trained using a special algorithm called <strong>PPO</strong> (Proximal Policy Optimization). It’s a fancy way to help the robot learn from rewards without getting too wild or making weird mistakes.
+  </div>
+
+  <h2>What’s Next? Can Robots Be Perfect?</h2>
+  <p>
+    Not yet! Even with all this training, robots like InstructGPT can still:
+  </p>
+  <ul>
+    <li>Make up facts (hallucinate)</li>
+    <li>Be too careful and not answer simple questions directly</li>
+    <li>Follow bad instructions if you ask them to do something harmful</li>
+  </ul>
+  <p>
+    The scientists say we need to keep improving how we teach robots, maybe by letting people give even better feedback, or by making robots refuse to do things that are not safe.
+  </p>
+
+  <h2>Why Does This Matter?</h2>
+  <p>
+    Robots that can really listen and help us are super useful! They can help with homework, write stories, answer questions, and much more. But we have to make sure they are safe, honest, and don’t hurt anyone. That’s why teaching robots with human feedback is so important.
+  </p>
+  <div class="example">
+    <strong>Imagine:</strong> If you had a robot friend who always did what you wanted, but also made sure not to say or do anything mean or dangerous. That’s the dream!
+  </div>
+
+  <h2>Conclusion: Teaching Robots, the Human Way</h2>
+  <p>
+    The big idea from this research is simple: <strong>Robots learn best when people show them what to do and give them feedback</strong>. Just like you learn from your teachers, parents, or friends, robots can learn from us. And maybe, one day, they’ll be the best helpers ever (and maybe even make a good croissant, who knows?).
+  </p>
+  <p>
+    <em>Merci for reading! If you have questions, ask your robot friend—maybe it’s already learned to listen.</em>
+  </p>
+
+  <h2>Further Reading (for Curious Kids and Grown-Ups)</h2>
+  <ul>
+    <li><a href="https://arxiv.org/abs/2203.02155" target="_blank">Original Paper: Training language models to follow instructions with human feedback</a></li>
+    <li><a href="https://openai.com/research" target="_blank">OpenAI Research Blog</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Reinforcement_learning" target="_blank">What is Reinforcement Learning?</a></li>
+  </ul>
+</body>
+</html>
