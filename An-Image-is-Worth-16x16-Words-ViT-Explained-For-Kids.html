@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>An Image is Worth 16x16 Words: How Transformers Learned to See</title>
+  <meta name="description" content="Explaining Vision Transformers (ViT) for image recognition in a way even a ten-year-old can understand. Discover how computers learn to see using the same tricks as language models!">
+  <meta property="article:published_time" content="2021-06-23" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d69; }
+    .fun-fact { background: #e7f3fe; border-left: 4px solid #2196F3; padding: 0.5em 1em; margin: 1em 0; }
+    .code { background: #eee; font-family: monospace; padding: 2px 4px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>An Image is Worth 16x16 Words: How Transformers Learned to See</h1>
+  <p><em>Explaining Vision Transformers (ViT) for image recognition in a way even a ten-year-old can understand.</em></p>
+
+  <h2>Introduction: Can Computers Read Pictures Like Sentences?</h2>
+  <p>
+    Salut! Imagine you have a robot friend. This robot is super good at reading stories, but not so good at looking at pictures. What if we could teach it to look at a picture the same way it reads a book? That’s exactly what some clever scientists at Google tried to do! They used a special trick called a <strong>Transformer</strong>—the same thing that helps computers understand language—to help computers “see” images. This is the story of the <strong>Vision Transformer</strong>, or ViT for short.
+  </p>
+
+  <h2>What is a Transformer? (No, not the robot kind!)</h2>
+  <p>
+    In computer science, a <strong>Transformer</strong> is a type of model that helps computers understand language by paying attention to all the words in a sentence at once. It’s like having a superpower to remember every word and see how they connect. Transformers are why computers can now write poems, answer questions, and even chat with you!
+  </p>
+
+  <h2>How Did Computers See Images Before?</h2>
+  <p>
+    Before Transformers, computers used something called <strong>Convolutional Neural Networks</strong> (CNNs) to look at pictures. CNNs are like a magnifying glass that slides over the image, looking for patterns like edges, shapes, and colors. They are very good at this, but they only look at small parts at a time and need a lot of special tricks to work well.
+  </p>
+
+  <h2>What’s New? Meet the Vision Transformer (ViT)</h2>
+  <p>
+    The scientists asked: “What if we just use a Transformer, like in language, but for images?” Instead of looking at every pixel, they cut the image into small squares called <strong>patches</strong> (like tiny tiles). Each patch is like a word in a sentence. The Vision Transformer looks at all these patches at once and tries to understand the whole picture, just like it would read a sentence.
+  </p>
+
+  <h3>How Does ViT Work? (It’s Like LEGO for Pictures!)</h3>
+  <ul>
+    <li>First, the image is chopped into little squares (for example, 16x16 pixels each).</li>
+    <li>Each square is turned into a list of numbers (an <strong>embedding</strong>—don’t worry, it’s just math magic).</li>
+    <li>All these numbers are lined up, like words in a sentence.</li>
+    <li>The Transformer looks at all the patches at once, paying attention to which ones are important for the task (like finding a cat or a car).</li>
+    <li>At the end, it makes a guess: “This picture is a dog!” or “This is a flower!”</li>
+  </ul>
+  <div class="fun-fact">
+    <strong>Fun Fact:</strong> The name “An Image is Worth 16x16 Words” is a joke! Each patch is 16x16 pixels, and the Transformer treats them like words.
+  </div>
+
+  <h2>Why Is This Cool? (And a Bit Surprising!)</h2>
+  <p>
+    When the scientists tried this idea, they found something amazing: If you give the Vision Transformer enough pictures to learn from (like millions!), it gets really, really good at recognizing things. In fact, it can beat the best CNNs on many tests, and it learns faster too!
+  </p>
+  <ul>
+    <li>On big datasets (like ImageNet with millions of images), ViT was as good or better than the best CNNs.</li>
+    <li>It needed less computer power to train (so, faster and cheaper!).</li>
+    <li>It worked well on many different kinds of pictures: animals, flowers, even medical images.</li>
+  </ul>
+
+  <h2>What Did the Scientists Learn?</h2>
+  <h3>Bigger Is Better (If You Have Enough Data!)</h3>
+  <p>
+    At first, ViT wasn’t so great on small datasets. But when they gave it more and more images, it started to shine. It turns out, Transformers don’t have built-in tricks for images (like CNNs do), so they need lots of examples to learn from scratch. But with enough data, they can learn anything!
+  </p>
+  <h3>Comparing Models: ViT vs. CNNs</h3>
+  <p>
+    The scientists compared ViT to famous CNNs like ResNet and EfficientNet. On the biggest datasets, ViT was faster to train and got better scores. On smaller datasets, CNNs still had a little edge, but ViT caught up quickly as the data grew.
+  </p>
+  <div class="fun-fact">
+    <strong>Geeky Detail:</strong> ViT can look at the whole image at once, not just small parts. This is called “global attention.” It’s like having eyes everywhere!
+  </div>
+
+  <h2>How Does ViT “See”? (Attention Maps!)</h2>
+  <p>
+    One of the coolest things about Transformers is that you can see what they are “paying attention” to. The scientists made pictures showing which parts of the image ViT looked at when making a decision. Sometimes, it focused on the animal’s face, or the petals of a flower—just like a human would!
+  </p>
+  <img src="https://user-images.githubusercontent.com/vision-transformer-attention-map-example.png" alt="Example of ViT attention map" style="max-width:400px; border:1px solid #ccc;">
+  <p style="font-size:small;">(Example: The model pays attention to the important parts of the image!)</p>
+
+  <h2>Can ViT Learn Without Labels? (Self-Supervision)</h2>
+  <p>
+    The scientists also tried teaching ViT without telling it the answers (like a puzzle). They hid parts of the image and asked ViT to guess what was missing. This is called <strong>self-supervised learning</strong>. It worked pretty well, but not as good as when they gave it the answers. Still, it’s a promising idea for the future!
+  </p>
+
+  <h2>Conclusion: Why Does This Matter?</h2>
+  <p>
+    The Vision Transformer is a big step forward. It shows that the same ideas that help computers read and write can also help them see. With enough data, Transformers can learn to recognize almost anything in a picture. This could help with robots, medical images, self-driving cars, and much more.
+  </p>
+  <p>
+    And who knows? Maybe one day, your robot friend will be just as good at looking at pictures as it is at reading stories. Merci for reading, and remember: in AI, sometimes the best ideas come from mixing things up!
+  </p>
+
+  <hr>
+  <p style="font-size:small;">
+    <strong>References:</strong>  
+    <a href="https://arxiv.org/abs/2010.11929">Original Paper (arXiv:2010.11929)</a> |  
+    <a href="https://github.com/google-research/vision_transformer">ViT Code & Models</a>
+  </p>
+</body>
+</html>
