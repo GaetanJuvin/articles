@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MobileNetV2: How to Make Smart Computers Fit in Your Pocket</title>
+  <meta name="description" content="Explaining MobileNetV2 for kids: how Google made neural networks super small and fast for your phone, using clever tricks like depthwise convolutions, linear bottlenecks, and inverted residuals.">
+  <meta property="article:published_time" content="2019-03-31" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a5d9f; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .fun { color: #e67e22; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>MobileNetV2: How to Make Smart Computers Fit in Your Pocket</h1>
+  <p><em>By a friendly French engineer who loves to explain geeky things simply!</em></p>
+  <p><strong>Meta Description:</strong> Explaining MobileNetV2 for kids: how Google made neural networks super small and fast for your phone, using clever tricks like depthwise convolutions, linear bottlenecks, and inverted residuals.</p>
+
+  <h2>Introduction: Can a Computer Be as Smart as a Brain, but Tiny?</h2>
+  <p>
+    Imagine if your phone could see and understand the world almost like a human. It could recognize your cat, find your favorite toy in a photo, or even color in pictures for you. But there’s a problem: the smartest computers, called <strong>neural networks</strong>, are usually huge and need a lot of power. How can we make them small and fast enough to fit in your pocket?
+  </p>
+  <p>
+    That’s where <span class="fun">MobileNetV2</span> comes in! It’s a clever way to make these smart networks super tiny and super speedy, so they can run on your phone, your watch, or even a robot toy.
+  </p>
+
+  <h2>Why Are Big Neural Networks a Problem?</h2>
+  <p>
+    Neural networks are like giant teams of tiny robots, each doing a little bit of math to help the computer understand things. The more robots you have, the smarter the network—but also the slower and hungrier it gets! Big networks need big computers, lots of memory, and lots of electricity. That’s not good for your phone, which has a small battery and not much space.
+  </p>
+  <p>
+    So, the challenge is: <strong>How do we make a neural network that’s still smart, but much smaller and faster?</strong>
+  </p>
+
+  <h2>The Magic Tricks of MobileNetV2</h2>
+  <h3>Trick 1: Depthwise Separable Convolutions (Painting with a Tiny Brush)</h3>
+  <p>
+    Normally, neural networks use something called <strong>convolutions</strong> to look at pictures. It’s like using a big paint roller to paint the whole wall at once. But what if you use a tiny paintbrush and only paint the important parts? That’s what <strong>depthwise separable convolutions</strong> do! They split the job into two steps: first, each color (or channel) is painted separately, then they mix the colors together. This uses much less paint (math) and is much faster!
+  </p>
+
+  <h3>Trick 2: Linear Bottlenecks (Keeping Only the Important Stuff)</h3>
+  <p>
+    Imagine you have a big box of LEGO bricks, but you only need a few special pieces to build your model. Instead of carrying the whole box, you just take the important bricks. In MobileNetV2, the network squishes the information down to a small size (the <strong>bottleneck</strong>), does some work, and then expands it again. But here’s the clever part: it doesn’t use any squiggly math (non-linearity) in the small space, so it doesn’t lose important information. This is called a <strong>linear bottleneck</strong>.
+  </p>
+
+  <h3>Trick 3: Inverted Residuals (Shortcutting the Boring Parts)</h3>
+  <p>
+    Sometimes, the network is just passing information along without changing it much. Instead of making it go through all the steps, MobileNetV2 gives it a shortcut—a bit like a secret tunnel! But instead of connecting the big parts, it connects the small bottlenecks. This is called an <strong>inverted residual</strong>, and it saves memory and makes the network faster.
+  </p>
+
+  <h2>How Does MobileNetV2 Work? (The Building Blocks)</h2>
+  <p>
+    Let’s build a MobileNetV2 together, step by step:
+    <ul>
+      <li>Start with a picture (like a photo of your cat).</li>
+      <li>Use a normal convolution to get things started.</li>
+      <li>Then, stack lots of special blocks. Each block does:
+        <ol>
+          <li>Expands the information (like blowing up a balloon).</li>
+          <li>Uses depthwise convolution to look at each part separately.</li>
+          <li>Shrinks it back down with a linear bottleneck (squish!).</li>
+          <li>Sometimes, adds a shortcut from the start to the end of the block (the secret tunnel).</li>
+        </ol>
+      </li>
+      <li>At the end, the network makes its best guess: “Is this a cat? A dog? A banana?”</li>
+    </ul>
+  </p>
+  <p>
+    The network is like a LEGO castle made of these clever blocks, each saving space and time.
+  </p>
+
+  <h2>Why Do These Tricks Work?</h2>
+  <p>
+    If you don’t use these tricks, the network gets too big and slow. It’s like trying to carry all your toys at once—you drop things and get tired! By using depthwise convolutions, linear bottlenecks, and inverted residuals, MobileNetV2 keeps only what’s important, skips the boring parts, and moves super fast.
+  </p>
+  <p>
+    The scientists even tested what happens if you add too much squiggly math (non-linearity) in the bottleneck. The network gets confused and forgets things! So, keeping it linear in the small space is very important.
+  </p>
+
+  <h2>What Can MobileNetV2 Do?</h2>
+  <h3>Recognizing Pictures (ImageNet)</h3>
+  <p>
+    MobileNetV2 can look at a picture and say what’s in it—like “cat”, “dog”, or “car”. It’s very good at this, even though it’s much smaller than other networks.
+  </p>
+  <h3>Finding Things in Pictures (Object Detection)</h3>
+  <p>
+    It can also find where things are in a picture, drawing boxes around them. For this, it uses a special helper called <strong>SSDLite</strong>, which is also very fast and small.
+  </p>
+  <h3>Coloring in Pictures (Semantic Segmentation)</h3>
+  <p>
+    MobileNetV2 can even color in each part of a picture—like making all the cats pink and all the dogs blue! This is called <strong>semantic segmentation</strong>, and it’s very useful for robots and self-driving cars.
+  </p>
+
+  <h2>Results: Is MobileNetV2 Really Good?</h2>
+  <p>
+    Yes! The scientists compared MobileNetV2 to other networks, like <strong>ShuffleNet</strong>, <strong>NASNet</strong>, and the older <strong>MobileNetV1</strong>. MobileNetV2 was just as smart, but much smaller and faster. For example:
+    <ul>
+      <li>It uses only <strong>3.4 million</strong> pieces (parameters), while others use much more.</li>
+      <li>It needs only <strong>300 million</strong> math steps (multiply-adds), which is very little for a computer.</li>
+      <li>It can run on a phone in <strong>75 milliseconds</strong>—that’s faster than you can blink!</li>
+    </ul>
+    And for finding things in pictures, MobileNetV2 with SSDLite is <span class="fun">20 times more efficient</span> than some other models, but still finds things just as well.
+  </p>
+
+  <h2>Conclusion: Why Does This Matter?</h2>
+  <p>
+    Thanks to MobileNetV2, your phone can be much smarter without getting hot or running out of battery. It can see, understand, and help you in real time. Maybe one day, your watch or even your shoes will be able to recognize things around you!
+  </p>
+  <p>
+    <span class="fun">Fun fact:</span> The ideas in MobileNetV2 are now used in many apps, from Google Photos to robots and even self-driving cars. And the best part? The code is open for everyone to use and learn from!
+  </p>
+  <p>
+    <em>Merci for reading! If you want to build your own smart apps, MobileNetV2 is a great place to start. À bientôt!</em>
+  </p>
+</body>
+</html>
