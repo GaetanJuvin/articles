@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>How to Train a Giant AI: GShard and the Magic of Splitting Up the Work</title>
+  <meta name="description" content="Explaining GShard: How Google trained a 600-billion-parameter AI model for translation using clever sharding and conditional computation.">
+  <meta property="article:published_time" content="2020-07-10" />
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin: 2em; background: #f9f9f9; color: #222; }
+    h1, h2, h3 { color: #2a4d69; }
+    code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    .note { background: #e7f3fe; border-left: 4px solid #2196F3; padding: 1em; margin: 1em 0; }
+  </style>
+</head>
+<body>
+  <h1>How to Train a Giant AI: GShard and the Magic of Splitting Up the Work</h1>
+  <p><em>Or: How Google Trained a 600-Billion-Parameter Model Without Melting the Data Center</em></p>
+  <p><strong>Meta description:</strong> Explaining GShard: How Google trained a 600-billion-parameter AI model for translation using clever sharding and conditional computation. This post makes the ideas simple, even for a ten-year-old!</p>
+
+  <h2>Introduction: Why Do We Want Giant AI Models?</h2>
+  <p>
+    Imagine you have a super-duper robot brain that can translate any language. The more you teach it, the better it gets. But what if you want it to be the best in the world? You need to make it <strong>huge</strong>—like, really, really huge. But then, you run into problems: it’s too big for one computer, too slow, and too hard to manage. That’s where <strong>GShard</strong> comes in, a clever way to split up the work so even the biggest robot brains can learn fast!
+  </p>
+
+  <h2>The Challenges of Giant Models</h2>
+  <h3>Why Not Just Use More Computers?</h3>
+  <p>
+    You might think, “Just use more computers!” But it’s not so easy. If you try to put a giant model on lots of computers, you get problems:
+    <ul>
+      <li><strong>Memory:</strong> The model is too big to fit on one computer’s memory.</li>
+      <li><strong>Speed:</strong> If you split the work badly, some computers sit around doing nothing while others are overloaded.</li>
+      <li><strong>Programming:</strong> Writing code to split the model is hard and takes a lot of time.</li>
+    </ul>
+    It’s like trying to build a LEGO castle with your friends, but you only have one instruction book and not enough pieces for everyone!
+  </p>
+
+  <h2>Meet GShard: The Super Splitter</h2>
+  <h3>What is Sharding?</h3>
+  <p>
+    <strong>Sharding</strong> is a fancy word for splitting things into pieces. GShard is a tool that helps you split your giant AI model into smaller parts, so each computer (or TPU, which is a special AI chip) can work on its own piece.
+  </p>
+  <h3>Conditional Computation and Mixture-of-Experts (MoE)</h3>
+  <p>
+    But wait, there’s more! GShard uses something called <strong>conditional computation</strong>. Instead of making every part of the model work on every word, it uses a <strong>Mixture-of-Experts</strong> (MoE) system. It’s like having a team of experts, and for each word, only the best experts are called in to help. This saves time and makes the model even bigger without slowing it down.
+  </p>
+  <h3>How GShard Makes Life Easier</h3>
+  <p>
+    With GShard, you don’t have to rewrite your whole program. You just add a few notes (annotations) to say how you want to split things, and GShard’s magic compiler does the rest. It figures out how to send the right pieces to the right computers, and how to put everything back together.
+  </p>
+
+  <h2>How GShard Works (Without the Headache)</h2>
+  <h3>Annotating Tensors for Sharding</h3>
+  <p>
+    In AI, data is stored in big tables called <strong>tensors</strong>. With GShard, you can say, “Hey, split this tensor across all my computers!” or “Copy this tensor everywhere!” It’s like telling your friends, “You build the left wall, I build the right wall, and we’ll meet in the middle.”
+  </p>
+  <h3>The Magic of the SPMD Compiler</h3>
+  <p>
+    GShard uses a special compiler (a program that turns your code into something the computer understands) called <strong>SPMD</strong>—Single Program, Multiple Data. This means every computer runs the same program, but on its own piece of the data. The compiler figures out all the tricky details, like who needs to talk to whom and when.
+  </p>
+  <h3>Communication Between Computers</h3>
+  <p>
+    Sometimes, computers need to share their work. GShard uses smart ways to send messages between computers, so they don’t get stuck waiting. It uses things like <code>AllReduce</code> and <code>AllToAll</code>—think of these as group chats for computers!
+  </p>
+
+  <h2>Building a Giant Translator: The MoE Transformer</h2>
+  <h3>How Big is Big?</h3>
+  <p>
+    With GShard, Google built a <strong>Transformer</strong> model (that’s a type of AI good at language) with <strong>600 billion parameters</strong>. That’s like having 600 billion little knobs to tune! For comparison, a regular model might have just a few million or billion.
+  </p>
+  <h3>Training on 2048 TPUs</h3>
+  <p>
+    They trained this monster model on <strong>2048 TPUs</strong> (special AI computers) for just 4 days. That’s super fast for something so big! And it could translate between <strong>100 languages</strong> to English, all in one model.
+  </p>
+  <div class="note">
+    <strong>Fun fact:</strong> Training all 100 language pairs separately would have taken even more computer time!
+  </div>
+
+  <h2>Results: Faster, Better, Cheaper</h2>
+  <h3>Quality Improvements</h3>
+  <p>
+    The giant MoE Transformer beat the old models in translation quality, especially for languages with less data. It also did better for big languages, once the model was big enough.
+  </p>
+  <h3>Training Efficiency</h3>
+  <p>
+    Thanks to GShard and MoE, the model trained much faster and used less memory per computer. The clever splitting meant that adding more experts (specialized parts of the model) didn’t make each computer’s job harder.
+  </p>
+  <h3>Memory and Runtime</h3>
+  <p>
+    Even as the model got bigger, each computer only needed about the same amount of memory. And the time to train didn’t go up as fast as the model size—so you get more power without paying a huge price in time.
+  </p>
+
+  <h2>Conclusion: Why GShard is a Big Deal</h2>
+  <p>
+    GShard shows us that with the right tools, we can build and train <strong>giant</strong> AI models that were impossible before. By splitting up the work smartly and only using the parts of the model we need for each example, we get better results, faster training, and more efficient use of computers.
+  </p>
+  <p>
+    For the future, this means we can keep making AI models bigger and smarter, without needing a whole city’s worth of computers. And maybe, just maybe, your next translation app will be powered by a model trained with GShard!
+  </p>
+  <hr>
+  <p><em>Merci for reading! If you have questions, ask away—no question is too small when it comes to giant AI.</em></p>
+</body>
+</html>
